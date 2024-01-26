@@ -1,0 +1,27 @@
+.section {
+  width: 70vw;
+  margin: 0 auto;
+  display: grid;
+  text-align: center;
+  gap: 2rem;
+  padding: 4rem 0;
+}
+
+article {
+  border: 2px solid red;
+}
+
+.exampleImg {
+  border-radius: 1rem;
+  /* height: 300px; */
+}
+
+@media (min-width: 992px) {
+  .section {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .exampleImg {
+    /* height: 200px; */
+  }
+}

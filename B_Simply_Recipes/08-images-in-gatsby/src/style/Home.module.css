@@ -1,0 +1,14 @@
+.page {
+  color: blueviolet;
+  background-color: rgb(165, 134, 134);
+}
+
+.page h1 {
+  color: fuchsia;
+}
+
+.text {
+  text-transform: capitalize;
+  font-weight: 700;
+
+}
