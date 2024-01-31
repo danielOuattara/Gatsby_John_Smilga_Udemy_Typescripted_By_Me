@@ -146,38 +146,13 @@
 
 //----------------------------------------------- alias
 
-import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import * as React from "react";
+import { graphql, useStaticQuery } from "gatsby";
 
-/* Testing useStaticQuery()
------------------------------*/
+/* Testing useStaticQuery() Automatic Types from Gatsby
+-------------------------------------------------------*/
 
-type User = {
-  id: number;
-  first_name: string;
-  last_name: string;
-  email: string;
-  gender: string;
-  ip_address: string;
-};
-
-type DataProps = {
-  site: {
-    info: {
-      title: string;
-      description: string;
-      inspiredBy: string;
-      author: {
-        name: string;
-        place: string;
-      };
-      simpleData: string[];
-      complexData: User[];
-    };
-  };
-};
-
-const FetchDataQuery = graphql`
+const query = graphql`
   query FetchData {
     site {
       info: siteMetadata {
@@ -205,12 +180,12 @@ const FetchDataQuery = graphql`
 export default function FetchData() {
   // site is the alias declared above
 
-  const data: DataProps = useStaticQuery(FetchDataQuery);
+  const data: Queries.FetchDataQuery = useStaticQuery(query);
 
   return (
     <>
-      <h2>{data.site.info.author.name}</h2>
-      <p>{data.site.info.description}</p>
+      <h2>{data.site?.info?.author?.name}</h2>
+      <p>{data.site?.info?.description}</p>
     </>
   );
 }
