@@ -9,7 +9,7 @@ export default function Images_Example_2() {
       <article className={styles.article}>
         <h4> constrained / default</h4>
         <StaticImage
-          src="./../../assets/images/recipe-1.jpeg"
+          src="./../assets/images/recipe-1.jpeg"
           alt="recipe 1"
           placeholder="tracedSVG"
           layout="constrained"

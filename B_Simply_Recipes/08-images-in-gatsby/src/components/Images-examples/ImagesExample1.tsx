@@ -1,6 +1,6 @@
 import React from "react";
 import "./images_Example_1.module.css";
-import big from "./../../assets/images/big.jpg";
+import big from "./../assets/images/big.jpg";
 import { StaticImage } from "gatsby-plugin-image";
 
 export default function ImagesExample1() {
@@ -11,7 +11,7 @@ export default function ImagesExample1() {
         <img src={big} alt="food-meal 1" />
 
         <StaticImage
-          src={"./../../assets/images/big-copy.jpg"}
+          src={"./../assets/images/big-copy.jpg"}
           alt="huge image"
         />
 
