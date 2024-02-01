@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link } from "gatsby";
 import { getImage, GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 
-type TypesRecipesSuper =
+type TypesRecipes =
   | {
       recipes: ReadonlyArray<{
         readonly id: string;
@@ -29,7 +29,7 @@ type TypesRecipesSuper =
       }>;
     };
 
-export default function RecipesList({ recipes = [] }: TypesRecipesSuper) {
+export default function RecipesList({ recipes = [] }: TypesRecipes) {
   return (
     <div className="recipes-list">
       {recipes.map((recipe) => {

@@ -1,7 +1,6 @@
 import * as React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import TagsList from "./TagsList";
-import RecipesList from "./RecipesList";
+import { TagsList, RecipesList } from "./index";
 
 const query = graphql`
   query AllRecipes {
