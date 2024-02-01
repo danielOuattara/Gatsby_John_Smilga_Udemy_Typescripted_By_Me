@@ -1,10 +1,30 @@
 import * as React from "react";
-import type { HeadFC, PageProps } from "gatsby";
-import { Layout } from "./../components";
+import { HeadFC, PageProps, graphql, Link } from "gatsby";
+import { Layout, RecipesList } from "./../components";
 import { StaticImage } from "gatsby-plugin-image";
-import { Link } from "gatsby";
 
-export default function About(props: PageProps) {
+export const query = graphql`
+  query About {
+    allContentfulSimpleRecipesGatsbyJohnSmilga(
+      filter: { featured: { eq: true } }
+      sort: { title: ASC }
+    ) {
+      nodes {
+        id
+        title
+        cookingTime
+        preparationTime
+        image {
+          gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
+        }
+      }
+    }
+  }
+`;
+
+export default function About({ data }: PageProps<Queries.AboutQuery>) {
+  const featuredRecipes = data.allContentfulSimpleRecipesGatsbyJohnSmilga.nodes;
+
   return (
     <Layout>
       <main className="page">
@@ -31,6 +51,10 @@ export default function About(props: PageProps) {
             className="about-img"
             placeholder="blurred"
           />
+        </section>
+        <section className="featured-recipes">
+          <h5>Look at this Awesome sauce!</h5>
+          <RecipesList recipes={featuredRecipes} />
         </section>
       </main>
     </Layout>

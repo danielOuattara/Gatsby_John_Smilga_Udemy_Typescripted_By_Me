@@ -1,8 +1,7 @@
 import React from "react";
 import type { HeadFC, PageProps } from "gatsby";
-import Layout from "./../components/Layout";
 import { StaticImage } from "gatsby-plugin-image";
-import AllRecipes from "./../components/AllRecipes";
+import { AllRecipes, Layout } from "./../components";
 
 export default function Home(props: PageProps) {
   return (

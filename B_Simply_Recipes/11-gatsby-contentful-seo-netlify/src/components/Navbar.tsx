@@ -1,8 +1,7 @@
-import React from "react";
+import * as React from "react";
 import { Link } from "gatsby";
 import { FiAlignJustify } from "react-icons/fi";
 import logo from "./../assets/images/logo.svg";
-
 
 const navBarItems = ["home", "recipes", "tags", "about"];
 

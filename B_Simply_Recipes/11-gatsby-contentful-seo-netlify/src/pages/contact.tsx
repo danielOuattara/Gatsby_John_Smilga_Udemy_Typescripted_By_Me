@@ -1,8 +1,29 @@
 import * as React from "react";
-import type { HeadFC, PageProps } from "gatsby";
-import { Layout } from "./../components";
+import { HeadFC, PageProps, graphql, Link } from "gatsby";
+import { Layout, RecipesList } from "./../components";
 
-export default function Contact(props: PageProps) {
+export const query = graphql`
+  query Contact {
+    allContentfulSimpleRecipesGatsbyJohnSmilga(
+      filter: { featured: { eq: true } }
+      sort: { title: ASC }
+    ) {
+      nodes {
+        id
+        title
+        cookingTime
+        preparationTime
+        image {
+          gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
+        }
+      }
+    }
+  }
+`;
+
+export default function Contact({ data }: PageProps<Queries.AboutQuery>) {
+  const featuredRecipes = data.allContentfulSimpleRecipesGatsbyJohnSmilga.nodes;
+
   return (
     <Layout>
       <main className="page">
@@ -24,7 +45,11 @@ export default function Contact(props: PageProps) {
             </p>
           </article>
           <article>
-            <form className="form contact-form">
+            <form
+              className="form contact-form"
+              action="https://formspree.io/f/myyqwqyj"
+              method="POST"
+            >
               <div className="form-row">
                 <label htmlFor="name"> name</label>
                 <input type="text" name="name" id="name" />
@@ -45,6 +70,10 @@ export default function Contact(props: PageProps) {
               </button>
             </form>
           </article>
+        </section>
+        <section className="featured-recipes">
+          <h5>Look at this Awesome sauce!</h5>
+          <RecipesList recipes={featuredRecipes} />
         </section>
       </main>
     </Layout>

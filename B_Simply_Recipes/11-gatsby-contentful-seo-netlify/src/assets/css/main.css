@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400|Inconsolata:400");
+/* @import url("https://fonts.googleapis.com/css?family=Montserrat:400|Inconsolata:400"); */
 
 *,
 ::after,
@@ -282,6 +282,10 @@ button.block {
   min-height: calc(100vh - (6rem + 4rem));
 }
 
+.page h1 {
+  text-align: center;
+}
+
 .title {
   text-align: center;
   margin-bottom: 2rem;
@@ -421,7 +425,7 @@ form > *:last-child {
 
 .active-link {
   color: var(--primary-500);
-  border-left: 3px solid var(--primary-500);
+  border-bottom: 3px solid var(--primary-500);
 }
 
 .contact-link {
@@ -472,11 +476,6 @@ form > *:last-child {
     justify-content: flex-end;
     align-items: center;
     margin-right: 0;
-  }
-  .active-link {
-    color: var(--primary-500);
-    border-bottom: 3px solid var(--primary-500);
-    border-left: none;
   }
 }
 
@@ -560,7 +559,7 @@ form > *:last-child {
   .about-page {
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    height: 400px;
+    height: 600px;
   }
 
   .about-img {
