@@ -27,7 +27,6 @@ export default function AllRecipes() {
   const recipes = data.allContentfulSimpleRecipesGatsbyJohnSmilga.nodes;
   return (
     <section className="recipes-container">
-      <h4>All Recipes</h4>
       <TagsList recipes={recipes} />
       <RecipesList recipes={recipes} />
     </section>
