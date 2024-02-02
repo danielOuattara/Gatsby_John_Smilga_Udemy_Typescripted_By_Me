@@ -1,49 +1,50 @@
 import * as React from "react";
 import { Link } from "gatsby";
 import { getImage, GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
+import slugify from "slugify";
 
-type TypesRecipes =
+type TypesRecipes = NonNullable<
   | {
       recipes: ReadonlyArray<{
         readonly id: string;
-        readonly title: string | null;
-        readonly cookingTime: number | null;
-        readonly preparationTime: number | null;
+        readonly title: string;
+        readonly cookingTime: number;
+        readonly preparationTime: number;
         readonly content: {
-          readonly tags: ReadonlyArray<string | null> | null;
-        } | null;
+          readonly tags: ReadonlyArray<string>;
+        };
         readonly image: {
-          readonly gatsbyImageData: IGatsbyImageData | null;
-        } | null;
+          readonly gatsbyImageData: IGatsbyImageData;
+        };
       }>;
     }
   | {
       recipes: ReadonlyArray<{
         readonly id: string;
-        readonly title: string | null;
-        readonly cookingTime: number | null;
-        readonly preparationTime: number | null;
+        readonly title: string;
+        readonly cookingTime: number;
+        readonly preparationTime: number;
         readonly image: {
-          readonly gatsbyImageData: IGatsbyImageData | null;
-        } | null;
+          readonly gatsbyImageData: IGatsbyImageData;
+        };
       }>;
-    };
+    }
+>;
 
-export default function RecipesList({ recipes = [] }: TypesRecipes) {
+export default function RecipesList({ recipes }: TypesRecipes) {
   return (
     <div className="recipes-list">
       {recipes.map((recipe) => {
         return (
           <Link
-            // to={`/${titleToSlug(recipe.title)}`}
-            to={`/${recipe.title}`}
+            to={`/${slugify(recipe.title, { lower: true, trim: true })}`}
             key={recipe.id}
             className="recipe"
           >
             <GatsbyImage
               image={getImage(recipe.image.gatsbyImageData)}
               className="recipe-img"
-              alt={recipe.title || "not found"}
+              alt={recipe.title}
             />
             <h5>{recipe.title}</h5>
             <p>

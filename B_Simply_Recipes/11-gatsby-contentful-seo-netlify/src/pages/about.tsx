@@ -1,7 +1,21 @@
 import * as React from "react";
 import { HeadFC, PageProps, graphql, Link } from "gatsby";
 import { Layout, RecipesList } from "./../components";
-import { StaticImage } from "gatsby-plugin-image";
+import { StaticImage, IGatsbyImageData } from "gatsby-plugin-image";
+
+type AboutQuery = {
+  readonly allContentfulSimpleRecipesGatsbyJohnSmilga: {
+    readonly nodes: ReadonlyArray<{
+      readonly id: string;
+      readonly title: string;
+      readonly cookingTime: number;
+      readonly preparationTime: number;
+      readonly image: {
+        readonly gatsbyImageData: IGatsbyImageData;
+      };
+    }>;
+  };
+};
 
 export const query = graphql`
   query About {
@@ -22,7 +36,7 @@ export const query = graphql`
   }
 `;
 
-export default function About({ data }: PageProps<Queries.AboutQuery>) {
+export default function About({ data }: PageProps<AboutQuery>) {
   const featuredRecipes = data.allContentfulSimpleRecipesGatsbyJohnSmilga.nodes;
 
   return (

@@ -1,11 +1,55 @@
 import * as React from "react";
-import type { HeadFC, PageProps } from "gatsby";
+import { HeadFC, PageProps, graphql, Link } from "gatsby";
 import { Layout } from "./../components";
+import setupTags from "./../utils/setupTag";
 
-export default function Tags(props: PageProps) {
+type TagsQuery = {
+  allContentfulSimpleRecipesGatsbyJohnSmilga: {
+    nodes: {
+      content: {
+        tags: string[];
+      };
+    }[];
+  };
+};
+
+type TypesTags = {
+  content: {
+    tags: readonly string[];
+  };
+}[];
+
+export const query = graphql`
+  query Tags {
+    allContentfulSimpleRecipesGatsbyJohnSmilga(sort: { title: ASC }) {
+      nodes {
+        content {
+          tags
+        }
+      }
+    }
+  }
+`;
+
+export default function Tags({ data }: PageProps<TagsQuery>) {
+  const recipesTags = data.allContentfulSimpleRecipesGatsbyJohnSmilga.nodes;
+  const tags = setupTags(recipesTags);
+
   return (
     <Layout>
-      <h1>Tags page</h1>
+      <main className="page">
+        <section className="tags-page">
+          {tags.map((item) => (
+            <Link key={item[0]} to={`/tags/${item[0]}`} className="tag">
+              <h5>{item[0]}</h5>
+              <p>
+                {item[1]}
+                {item[1] > 1 ? " recipes" : " recipe"}
+              </p>
+            </Link>
+          ))}
+        </section>
+      </main>
     </Layout>
   );
 }
