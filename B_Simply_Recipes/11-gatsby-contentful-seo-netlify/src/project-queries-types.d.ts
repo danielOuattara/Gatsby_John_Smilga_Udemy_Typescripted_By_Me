@@ -1560,6 +1560,7 @@ type ContentfulSimpleRecipesGatsbyJohnSmilga = ContentfulEntry & ContentfulRefer
   readonly createdAt: Maybe<Scalars['Date']>;
   readonly description: Maybe<contentfulSimpleRecipesGatsbyJohnSmilgaDescriptionTextNode>;
   readonly featured: Maybe<Scalars['Boolean']>;
+  readonly gatsbyPath: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
   readonly image: Maybe<ContentfulAsset>;
   readonly internal: Internal;
@@ -1579,6 +1580,11 @@ type ContentfulSimpleRecipesGatsbyJohnSmilga_createdAtArgs = {
   formatString: InputMaybe<Scalars['String']>;
   fromNow: InputMaybe<Scalars['Boolean']>;
   locale: InputMaybe<Scalars['String']>;
+};
+
+
+type ContentfulSimpleRecipesGatsbyJohnSmilga_gatsbyPathArgs = {
+  filePath: InputMaybe<Scalars['String']>;
 };
 
 
@@ -1646,6 +1652,7 @@ type ContentfulSimpleRecipesGatsbyJohnSmilgaFieldSelector = {
   readonly createdAt: InputMaybe<FieldSelectorEnum>;
   readonly description: InputMaybe<contentfulSimpleRecipesGatsbyJohnSmilgaDescriptionTextNodeFieldSelector>;
   readonly featured: InputMaybe<FieldSelectorEnum>;
+  readonly gatsbyPath: InputMaybe<FieldSelectorEnum>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly image: InputMaybe<ContentfulAssetFieldSelector>;
   readonly internal: InputMaybe<InternalFieldSelector>;
@@ -1671,6 +1678,7 @@ type ContentfulSimpleRecipesGatsbyJohnSmilgaFilterInput = {
   readonly createdAt: InputMaybe<DateQueryOperatorInput>;
   readonly description: InputMaybe<contentfulSimpleRecipesGatsbyJohnSmilgaDescriptionTextNodeFilterInput>;
   readonly featured: InputMaybe<BooleanQueryOperatorInput>;
+  readonly gatsbyPath: InputMaybe<StringQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly image: InputMaybe<ContentfulAssetFilterInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
@@ -1737,6 +1745,7 @@ type ContentfulSimpleRecipesGatsbyJohnSmilgaSortInput = {
   readonly createdAt: InputMaybe<SortOrderEnum>;
   readonly description: InputMaybe<contentfulSimpleRecipesGatsbyJohnSmilgaDescriptionTextNodeSortInput>;
   readonly featured: InputMaybe<SortOrderEnum>;
+  readonly gatsbyPath: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly image: InputMaybe<ContentfulAssetSortInput>;
   readonly internal: InputMaybe<InternalSortInput>;
@@ -3420,6 +3429,7 @@ type Query_contentfulSimpleRecipesGatsbyJohnSmilgaArgs = {
   createdAt: InputMaybe<DateQueryOperatorInput>;
   description: InputMaybe<contentfulSimpleRecipesGatsbyJohnSmilgaDescriptionTextNodeFilterInput>;
   featured: InputMaybe<BooleanQueryOperatorInput>;
+  gatsbyPath: InputMaybe<StringQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   image: InputMaybe<ContentfulAssetFilterInput>;
   internal: InputMaybe<InternalFilterInput>;
@@ -3565,7 +3575,7 @@ type Query_siteArgs = {
   pathPrefix: InputMaybe<StringQueryOperatorInput>;
   polyfill: InputMaybe<BooleanQueryOperatorInput>;
   port: InputMaybe<IntQueryOperatorInput>;
-  siteMetadata: InputMaybe<SiteSiteMetadataFilterInput>;
+  siteMetadata: InputMaybe<SiteMetadataFilterInput>;
   trailingSlash: InputMaybe<StringQueryOperatorInput>;
 };
 
@@ -3739,7 +3749,7 @@ type Site = Node & {
   readonly pathPrefix: Maybe<Scalars['String']>;
   readonly polyfill: Maybe<Scalars['Boolean']>;
   readonly port: Maybe<Scalars['Int']>;
-  readonly siteMetadata: Maybe<SiteSiteMetadata>;
+  readonly siteMetadata: SiteMetadata;
   readonly trailingSlash: Maybe<Scalars['String']>;
 };
 
@@ -3934,7 +3944,7 @@ type SiteFieldSelector = {
   readonly pathPrefix: InputMaybe<FieldSelectorEnum>;
   readonly polyfill: InputMaybe<FieldSelectorEnum>;
   readonly port: InputMaybe<FieldSelectorEnum>;
-  readonly siteMetadata: InputMaybe<SiteSiteMetadataFieldSelector>;
+  readonly siteMetadata: InputMaybe<SiteMetadataFieldSelector>;
   readonly trailingSlash: InputMaybe<FieldSelectorEnum>;
 };
 
@@ -3950,7 +3960,7 @@ type SiteFilterInput = {
   readonly pathPrefix: InputMaybe<StringQueryOperatorInput>;
   readonly polyfill: InputMaybe<BooleanQueryOperatorInput>;
   readonly port: InputMaybe<IntQueryOperatorInput>;
-  readonly siteMetadata: InputMaybe<SiteSiteMetadataFilterInput>;
+  readonly siteMetadata: InputMaybe<SiteMetadataFilterInput>;
   readonly trailingSlash: InputMaybe<StringQueryOperatorInput>;
 };
 
@@ -4159,6 +4169,46 @@ type SiteGroupConnection_minArgs = {
 
 type SiteGroupConnection_sumArgs = {
   field: SiteFieldSelector;
+};
+
+type SiteMetadata = {
+  readonly author: Maybe<SiteSiteMetadataAuthor>;
+  readonly complexData: Maybe<ReadonlyArray<Maybe<SiteSiteMetadataComplexData>>>;
+  readonly description: Maybe<Scalars['String']>;
+  readonly inspiredBy: Maybe<Scalars['String']>;
+  readonly simpleData: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly siteUrl: Maybe<Scalars['String']>;
+  readonly title: Scalars['String'];
+};
+
+type SiteMetadataFieldSelector = {
+  readonly author: InputMaybe<SiteSiteMetadataAuthorFieldSelector>;
+  readonly complexData: InputMaybe<SiteSiteMetadataComplexDataFieldSelector>;
+  readonly description: InputMaybe<FieldSelectorEnum>;
+  readonly inspiredBy: InputMaybe<FieldSelectorEnum>;
+  readonly simpleData: InputMaybe<FieldSelectorEnum>;
+  readonly siteUrl: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+};
+
+type SiteMetadataFilterInput = {
+  readonly author: InputMaybe<SiteSiteMetadataAuthorFilterInput>;
+  readonly complexData: InputMaybe<SiteSiteMetadataComplexDataFilterListInput>;
+  readonly description: InputMaybe<StringQueryOperatorInput>;
+  readonly inspiredBy: InputMaybe<StringQueryOperatorInput>;
+  readonly simpleData: InputMaybe<StringQueryOperatorInput>;
+  readonly siteUrl: InputMaybe<StringQueryOperatorInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
+};
+
+type SiteMetadataSortInput = {
+  readonly author: InputMaybe<SiteSiteMetadataAuthorSortInput>;
+  readonly complexData: InputMaybe<SiteSiteMetadataComplexDataSortInput>;
+  readonly description: InputMaybe<SortOrderEnum>;
+  readonly inspiredBy: InputMaybe<SortOrderEnum>;
+  readonly simpleData: InputMaybe<SortOrderEnum>;
+  readonly siteUrl: InputMaybe<SortOrderEnum>;
+  readonly title: InputMaybe<SortOrderEnum>;
 };
 
 type SitePage = Node & {
@@ -4454,12 +4504,7 @@ type SitePluginSortInput = {
 };
 
 type SiteSiteMetadata = {
-  readonly author: Maybe<SiteSiteMetadataAuthor>;
-  readonly complexData: Maybe<ReadonlyArray<Maybe<SiteSiteMetadataComplexData>>>;
   readonly description: Maybe<Scalars['String']>;
-  readonly inspiredBy: Maybe<Scalars['String']>;
-  readonly simpleData: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
-  readonly siteUrl: Maybe<Scalars['String']>;
   readonly title: Maybe<Scalars['String']>;
 };
 
@@ -4523,36 +4568,6 @@ type SiteSiteMetadataComplexDataSortInput = {
   readonly last_name: InputMaybe<SortOrderEnum>;
 };
 
-type SiteSiteMetadataFieldSelector = {
-  readonly author: InputMaybe<SiteSiteMetadataAuthorFieldSelector>;
-  readonly complexData: InputMaybe<SiteSiteMetadataComplexDataFieldSelector>;
-  readonly description: InputMaybe<FieldSelectorEnum>;
-  readonly inspiredBy: InputMaybe<FieldSelectorEnum>;
-  readonly simpleData: InputMaybe<FieldSelectorEnum>;
-  readonly siteUrl: InputMaybe<FieldSelectorEnum>;
-  readonly title: InputMaybe<FieldSelectorEnum>;
-};
-
-type SiteSiteMetadataFilterInput = {
-  readonly author: InputMaybe<SiteSiteMetadataAuthorFilterInput>;
-  readonly complexData: InputMaybe<SiteSiteMetadataComplexDataFilterListInput>;
-  readonly description: InputMaybe<StringQueryOperatorInput>;
-  readonly inspiredBy: InputMaybe<StringQueryOperatorInput>;
-  readonly simpleData: InputMaybe<StringQueryOperatorInput>;
-  readonly siteUrl: InputMaybe<StringQueryOperatorInput>;
-  readonly title: InputMaybe<StringQueryOperatorInput>;
-};
-
-type SiteSiteMetadataSortInput = {
-  readonly author: InputMaybe<SiteSiteMetadataAuthorSortInput>;
-  readonly complexData: InputMaybe<SiteSiteMetadataComplexDataSortInput>;
-  readonly description: InputMaybe<SortOrderEnum>;
-  readonly inspiredBy: InputMaybe<SortOrderEnum>;
-  readonly simpleData: InputMaybe<SortOrderEnum>;
-  readonly siteUrl: InputMaybe<SortOrderEnum>;
-  readonly title: InputMaybe<SortOrderEnum>;
-};
-
 type SiteSortInput = {
   readonly buildTime: InputMaybe<SortOrderEnum>;
   readonly children: InputMaybe<NodeSortInput>;
@@ -4565,7 +4580,7 @@ type SiteSortInput = {
   readonly pathPrefix: InputMaybe<SortOrderEnum>;
   readonly polyfill: InputMaybe<SortOrderEnum>;
   readonly port: InputMaybe<SortOrderEnum>;
-  readonly siteMetadata: InputMaybe<SiteSiteMetadataSortInput>;
+  readonly siteMetadata: InputMaybe<SiteMetadataSortInput>;
   readonly trailingSlash: InputMaybe<SortOrderEnum>;
 };
 
@@ -5051,7 +5066,7 @@ type ContactQuery = { readonly allContentfulSimpleRecipesGatsbyJohnSmilga: { rea
 type FetchDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type FetchDataQuery = { readonly site: { readonly info: { readonly title: string | null, readonly description: string | null, readonly inspiredBy: string | null, readonly simpleData: ReadonlyArray<string | null> | null, readonly author: { readonly name: string | null, readonly place: string | null } | null, readonly complexData: ReadonlyArray<{ readonly id: number | null, readonly email: string | null, readonly first_name: string | null, readonly gender: string | null, readonly last_name: string | null, readonly ip_address: string | null } | null> | null } | null } | null };
+type FetchDataQuery = { readonly site: { readonly info: { readonly title: string, readonly description: string | null, readonly inspiredBy: string | null, readonly simpleData: ReadonlyArray<string | null> | null, readonly author: { readonly name: string | null, readonly place: string | null } | null, readonly complexData: ReadonlyArray<{ readonly id: number | null, readonly email: string | null, readonly first_name: string | null, readonly gender: string | null, readonly last_name: string | null, readonly ip_address: string | null } | null> | null } } | null };
 
 type GalleryQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -5084,20 +5099,32 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = { readonly tracedSVG: st
 
 type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: number, readonly maxWidth: number };
 
+type GetSingleRecipeQueryVariables = Exact<{
+  title: InputMaybe<Scalars['String']>;
+}>;
+
+
+type GetSingleRecipeQuery = { readonly contentfulSimpleRecipesGatsbyJohnSmilga: { readonly id: string, readonly title: string | null, readonly servings: number | null, readonly cookingTime: number | null, readonly preparationTime: number | null, readonly description: { readonly description: string | null } | null, readonly content: { readonly ingredients: ReadonlyArray<string | null> | null, readonly instructions: ReadonlyArray<string | null> | null, readonly tags: ReadonlyArray<string | null> | null, readonly tools: ReadonlyArray<string | null> | null } | null, readonly image: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null } | null } | null };
+
+type TagsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type TagsQuery = { readonly allContentfulSimpleRecipesGatsbyJohnSmilga: { readonly nodes: ReadonlyArray<{ readonly content: { readonly tags: ReadonlyArray<string | null> | null } | null }> } };
+
 type TestingQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type TestingQuery = { readonly site: { readonly siteMetadata: { readonly title: string | null, readonly description: string | null, readonly inspiredBy: string | null, readonly simpleData: ReadonlyArray<string | null> | null, readonly author: { readonly name: string | null, readonly place: string | null } | null, readonly complexData: ReadonlyArray<{ readonly id: number | null, readonly email: string | null, readonly first_name: string | null, readonly gender: string | null, readonly last_name: string | null, readonly ip_address: string | null } | null> | null } | null } | null };
+type TestingQuery = { readonly site: { readonly siteMetadata: { readonly title: string, readonly description: string | null, readonly inspiredBy: string | null, readonly simpleData: ReadonlyArray<string | null> | null, readonly author: { readonly name: string | null, readonly place: string | null } | null, readonly complexData: ReadonlyArray<{ readonly id: number | null, readonly email: string | null, readonly first_name: string | null, readonly gender: string | null, readonly last_name: string | null, readonly ip_address: string | null } | null> | null } } | null };
 
 type TestingPageQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type TestingPageQueryQuery = { readonly site: { readonly info: { readonly title: string | null, readonly description: string | null, readonly inspiredBy: string | null, readonly simpleData: ReadonlyArray<string | null> | null, readonly author: { readonly name: string | null, readonly place: string | null } | null, readonly complexData: ReadonlyArray<{ readonly id: number | null, readonly email: string | null, readonly first_name: string | null, readonly gender: string | null, readonly last_name: string | null, readonly ip_address: string | null } | null> | null } | null } | null };
+type TestingPageQueryQuery = { readonly site: { readonly info: { readonly title: string, readonly description: string | null, readonly inspiredBy: string | null, readonly simpleData: ReadonlyArray<string | null> | null, readonly author: { readonly name: string | null, readonly place: string | null } | null, readonly complexData: ReadonlyArray<{ readonly id: number | null, readonly email: string | null, readonly first_name: string | null, readonly gender: string | null, readonly last_name: string | null, readonly ip_address: string | null } | null> | null } } | null };
 
 type TypegenPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type TypegenPageQuery = { readonly site: { readonly siteMetadata: { readonly title: string | null } | null } | null };
+type TypegenPageQuery = { readonly site: { readonly siteMetadata: { readonly title: string } } | null };
 
 
 }
