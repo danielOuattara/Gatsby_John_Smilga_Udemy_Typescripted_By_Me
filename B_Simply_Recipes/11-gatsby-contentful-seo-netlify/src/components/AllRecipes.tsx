@@ -3,18 +3,18 @@ import { graphql, useStaticQuery } from "gatsby";
 import { TagsList, RecipesList } from "./index";
 import { IGatsbyImageData } from "gatsby-plugin-image";
 
-type AllRecipesQuery = {
-  readonly allContentfulSimpleRecipesGatsbyJohnSmilga: {
-    readonly nodes: ReadonlyArray<{
-      readonly id: string;
-      readonly title: string;
-      readonly cookingTime: number;
-      readonly preparationTime: number;
-      readonly content: {
-        readonly tags: ReadonlyArray<string>;
+type TypeAllRecipesQuery = {
+  allContentfulSimpleRecipesGatsbyJohnSmilga: {
+    nodes: Array<{
+      id: string;
+      title: string;
+      cookingTime: number;
+      preparationTime: number;
+      content: {
+        tags: Array<string>;
       };
-      readonly image: {
-        readonly gatsbyImageData: IGatsbyImageData;
+      image: {
+        gatsbyImageData: IGatsbyImageData;
       };
     }>;
   };
@@ -40,7 +40,7 @@ const query = graphql`
 `;
 
 export default function AllRecipes() {
-  const data: AllRecipesQuery = useStaticQuery(query);
+  const data: TypeAllRecipesQuery = useStaticQuery(query);
   const recipes = data.allContentfulSimpleRecipesGatsbyJohnSmilga.nodes;
   return (
     <section className="recipes-container">
