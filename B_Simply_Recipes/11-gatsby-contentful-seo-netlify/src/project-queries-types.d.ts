@@ -5099,6 +5099,11 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = { readonly tracedSVG: st
 
 type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: number, readonly maxWidth: number };
 
+type GetRecipesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type GetRecipesQuery = { readonly allContentfulSimpleRecipesGatsbyJohnSmilga: { readonly nodes: ReadonlyArray<{ readonly content: { readonly tags: ReadonlyArray<string | null> | null } | null }> } };
+
 type GetSingleRecipeQueryVariables = Exact<{
   title: InputMaybe<Scalars['String']>;
 }>;
@@ -5110,6 +5115,13 @@ type TagsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type TagsQuery = { readonly allContentfulSimpleRecipesGatsbyJohnSmilga: { readonly nodes: ReadonlyArray<{ readonly content: { readonly tags: ReadonlyArray<string | null> | null } | null }> } };
+
+type TagTemplateQueryVariables = Exact<{
+  tag: InputMaybe<Scalars['String']>;
+}>;
+
+
+type TagTemplateQuery = { readonly allContentfulSimpleRecipesGatsbyJohnSmilga: { readonly totalCount: number, readonly nodes: ReadonlyArray<{ readonly id: string, readonly title: string | null, readonly preparationTime: number | null, readonly cookingTime: number | null, readonly image: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null } | null }> } };
 
 type TestingQueryVariables = Exact<{ [key: string]: never; }>;
 
