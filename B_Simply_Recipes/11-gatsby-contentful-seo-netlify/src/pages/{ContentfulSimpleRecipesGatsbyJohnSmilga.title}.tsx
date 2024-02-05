@@ -6,21 +6,21 @@ import { Layout } from "./../components";
 import slugify from "slugify";
 
 type GetSingleRecipeQuery = {
-  readonly contentfulSimpleRecipesGatsbyJohnSmilga: {
-    readonly id: string;
-    readonly title: string;
-    readonly servings: number;
-    readonly cookingTime: number;
-    readonly preparationTime: number;
-    readonly description: { readonly description: string };
-    readonly content: {
-      readonly ingredients: ReadonlyArray<string>;
-      readonly instructions: ReadonlyArray<string>;
-      readonly tags: ReadonlyArray<string>;
-      readonly tools: ReadonlyArray<string>;
+  contentfulSimpleRecipesGatsbyJohnSmilga: {
+    id: string;
+    title: string;
+    servings: number;
+    cookingTime: number;
+    preparationTime: number;
+    description: { description: string };
+    content: {
+      ingredients: Array<string>;
+      instructions: Array<string>;
+      tags: Array<string>;
+      tools: Array<string>;
     };
-    readonly image: {
-      readonly gatsbyImageData: IGatsbyImageData;
+    image: {
+      gatsbyImageData: IGatsbyImageData;
     };
   };
 };
@@ -59,7 +59,7 @@ export default function RecipesTemplate({
         <div className="recipe-page">
           <section className="recipe-hero">
             <GatsbyImage
-              image={getImage(recipe.image.gatsbyImageData)}
+              image={getImage(recipe.image.gatsbyImageData) as IGatsbyImageData}
               alt={recipe.title}
               className="about-img"
             />
