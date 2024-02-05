@@ -1,7 +1,8 @@
 import * as React from "react";
 import { HeadFC, PageProps, graphql, Link } from "gatsby";
 import { Layout } from "./../components";
-import setupTags from "./../utils/setupTag";
+import { setupTags } from "./../utils/setupTag";
+import slugify from "slugify";
 
 type TagsQuery = {
   allContentfulSimpleRecipesGatsbyJohnSmilga: {
@@ -40,7 +41,11 @@ export default function Tags({ data }: PageProps<TagsQuery>) {
       <main className="page">
         <section className="tags-page">
           {tags.map((item) => (
-            <Link key={item[0]} to={`/tags/${item[0]}`} className="tag">
+            <Link
+              key={item[0]}
+              to={`/tags/${slugify(item[0])}`}
+              className="tag"
+            >
               <h5>{item[0]}</h5>
               <p>
                 {item[1]}
