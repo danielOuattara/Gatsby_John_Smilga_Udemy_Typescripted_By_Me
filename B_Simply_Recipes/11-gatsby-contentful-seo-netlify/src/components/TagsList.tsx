@@ -1,20 +1,20 @@
 import * as React from "react";
 import { Link } from "gatsby";
 import { IGatsbyImageData } from "gatsby-plugin-image";
-import setupTags from "./../utils/setupTag";
+import { setupTags } from "./../utils/setupTag";
 import slugify from "slugify";
 
 type TypesRecipes = {
-  recipes: ReadonlyArray<{
-    readonly id: string;
-    readonly title: string;
-    readonly cookingTime: number;
-    readonly preparationTime: number;
-    readonly content: {
-      readonly tags: ReadonlyArray<string>;
+  recipes: Array<{
+    id: string;
+    title: string;
+    cookingTime: number;
+    preparationTime: number;
+    content: {
+      tags: Array<string>;
     };
-    readonly image: {
-      readonly gatsbyImageData: IGatsbyImageData;
+    image: {
+      gatsbyImageData: IGatsbyImageData;
     };
   }>;
 };
@@ -33,8 +33,7 @@ export default function TagsList({ recipes = [] }: TypesRecipes) {
         {tags.map((tag) => (
           <Link
             key={tag[0]}
-            // to={`/tags/${slugify(tag[0], { lower: true, trim: true })}`}
-            to={`/tags/${tag[0]}`}
+            to={`/tags/${slugify(tag[0], { lower: true, trim: true })}`}
           >
             {tag[0]} ({tag[1]})
           </Link>
