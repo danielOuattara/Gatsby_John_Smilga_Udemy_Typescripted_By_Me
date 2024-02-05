@@ -6,26 +6,26 @@ import slugify from "slugify";
 type TypesRecipes = NonNullable<
   | {
       recipes: ReadonlyArray<{
-        readonly id: string;
-        readonly title: string;
-        readonly cookingTime: number;
-        readonly preparationTime: number;
-        readonly content: {
-          readonly tags: ReadonlyArray<string>;
+        id: string;
+        title: string;
+        cookingTime: number;
+        preparationTime: number;
+        content: {
+          tags: ReadonlyArray<string>;
         };
-        readonly image: {
-          readonly gatsbyImageData: IGatsbyImageData;
+        image: {
+          gatsbyImageData: IGatsbyImageData;
         };
       }>;
     }
   | {
       recipes: ReadonlyArray<{
-        readonly id: string;
-        readonly title: string;
-        readonly cookingTime: number;
-        readonly preparationTime: number;
-        readonly image: {
-          readonly gatsbyImageData: IGatsbyImageData;
+        id: string;
+        title: string;
+        cookingTime: number;
+        preparationTime: number;
+        image: {
+          gatsbyImageData: IGatsbyImageData;
         };
       }>;
     }
