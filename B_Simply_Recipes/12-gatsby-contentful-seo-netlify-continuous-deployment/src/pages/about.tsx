@@ -4,14 +4,14 @@ import { Layout, RecipesList, Seo } from "./../components";
 import { StaticImage, IGatsbyImageData } from "gatsby-plugin-image";
 
 type AboutQuery = {
-  readonly allContentfulSimpleRecipesGatsbyJohnSmilga: {
-    readonly nodes: ReadonlyArray<{
-      readonly id: string;
-      readonly title: string;
-      readonly cookingTime: number;
-      readonly preparationTime: number;
-      readonly image: {
-        readonly gatsbyImageData: IGatsbyImageData;
+  allContentfulSimpleRecipesGatsbyJohnSmilga: {
+    nodes: Array<{
+      id: string;
+      title: string;
+      cookingTime: number;
+      preparationTime: number;
+      image: {
+        gatsbyImageData: IGatsbyImageData;
       };
     }>;
   };

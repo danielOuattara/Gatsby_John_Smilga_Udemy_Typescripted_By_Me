@@ -12,7 +12,7 @@ export default function Navbar() {
       <div className="nav-center">
         <div className="nav-header">
           <Link to="/">
-            <img src={logo} alt="simple recipes" />
+            <img src={logo as unknown as string} alt="simple recipes" />
           </Link>
           <button className="nav-btn" onClick={() => setShowLinks(!showLinks)}>
             <FiAlignJustify />

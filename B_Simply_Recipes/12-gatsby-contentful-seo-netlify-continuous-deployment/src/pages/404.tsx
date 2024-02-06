@@ -1,22 +1,22 @@
 import * as React from "react";
-import { Link, HeadFC, PageProps } from "gatsby";
+import { Link, PageProps } from "gatsby";
 import { Layout, Seo } from "./../components";
 
-const pageStyles = {
+const pageStyles: React.CSSProperties = {
   color: "#232129",
   padding: "96px",
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
 };
-const headingStyles = {
+const headingStyles: React.CSSProperties = {
   marginTop: 0,
   marginBottom: 64,
   maxWidth: 320,
 };
 
-const paragraphStyles = {
+const paragraphStyles: React.CSSProperties = {
   marginBottom: 48,
 };
-const codeStyles = {
+const codeStyles: React.CSSProperties = {
   color: "#8A6534",
   padding: 4,
   backgroundColor: "#FFF4DB",

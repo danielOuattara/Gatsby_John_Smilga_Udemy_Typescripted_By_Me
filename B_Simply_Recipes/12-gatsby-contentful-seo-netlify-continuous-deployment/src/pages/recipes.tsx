@@ -1,5 +1,5 @@
 import * as React from "react";
-import type { HeadFC, PageProps } from "gatsby";
+import type { PageProps } from "gatsby";
 import { Layout, AllRecipes, Seo } from "./../components";
 export default function Recipes(props: PageProps) {
   return (

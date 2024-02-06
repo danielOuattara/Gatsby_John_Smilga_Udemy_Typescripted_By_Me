@@ -1,5 +1,5 @@
 import * as React from "react";
-import { HeadFC, PageProps, graphql, Link } from "gatsby";
+import { PageProps, graphql, Link } from "gatsby";
 import { Layout, Seo } from "./../components";
 import { setupTags } from "./../utils/setupTag";
 import slugify from "slugify";
