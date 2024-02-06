@@ -4175,40 +4175,56 @@ type SiteMetadata = {
   readonly author: Maybe<SiteSiteMetadataAuthor>;
   readonly complexData: Maybe<ReadonlyArray<Maybe<SiteSiteMetadataComplexData>>>;
   readonly description: Maybe<Scalars['String']>;
+  readonly image: Maybe<Scalars['String']>;
   readonly inspiredBy: Maybe<Scalars['String']>;
+  readonly linkedInUsername: Maybe<Scalars['String']>;
   readonly simpleData: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly siteUrl: Maybe<Scalars['String']>;
   readonly title: Scalars['String'];
+  readonly titleTemplate: Maybe<Scalars['String']>;
+  readonly twitterUsername: Maybe<Scalars['String']>;
 };
 
 type SiteMetadataFieldSelector = {
   readonly author: InputMaybe<SiteSiteMetadataAuthorFieldSelector>;
   readonly complexData: InputMaybe<SiteSiteMetadataComplexDataFieldSelector>;
   readonly description: InputMaybe<FieldSelectorEnum>;
+  readonly image: InputMaybe<FieldSelectorEnum>;
   readonly inspiredBy: InputMaybe<FieldSelectorEnum>;
+  readonly linkedInUsername: InputMaybe<FieldSelectorEnum>;
   readonly simpleData: InputMaybe<FieldSelectorEnum>;
   readonly siteUrl: InputMaybe<FieldSelectorEnum>;
   readonly title: InputMaybe<FieldSelectorEnum>;
+  readonly titleTemplate: InputMaybe<FieldSelectorEnum>;
+  readonly twitterUsername: InputMaybe<FieldSelectorEnum>;
 };
 
 type SiteMetadataFilterInput = {
   readonly author: InputMaybe<SiteSiteMetadataAuthorFilterInput>;
   readonly complexData: InputMaybe<SiteSiteMetadataComplexDataFilterListInput>;
   readonly description: InputMaybe<StringQueryOperatorInput>;
+  readonly image: InputMaybe<StringQueryOperatorInput>;
   readonly inspiredBy: InputMaybe<StringQueryOperatorInput>;
+  readonly linkedInUsername: InputMaybe<StringQueryOperatorInput>;
   readonly simpleData: InputMaybe<StringQueryOperatorInput>;
   readonly siteUrl: InputMaybe<StringQueryOperatorInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
+  readonly titleTemplate: InputMaybe<StringQueryOperatorInput>;
+  readonly twitterUsername: InputMaybe<StringQueryOperatorInput>;
 };
 
 type SiteMetadataSortInput = {
   readonly author: InputMaybe<SiteSiteMetadataAuthorSortInput>;
   readonly complexData: InputMaybe<SiteSiteMetadataComplexDataSortInput>;
   readonly description: InputMaybe<SortOrderEnum>;
+  readonly image: InputMaybe<SortOrderEnum>;
   readonly inspiredBy: InputMaybe<SortOrderEnum>;
+  readonly linkedInUsername: InputMaybe<SortOrderEnum>;
   readonly simpleData: InputMaybe<SortOrderEnum>;
   readonly siteUrl: InputMaybe<SortOrderEnum>;
   readonly title: InputMaybe<SortOrderEnum>;
+  readonly titleTemplate: InputMaybe<SortOrderEnum>;
+  readonly twitterUsername: InputMaybe<SortOrderEnum>;
 };
 
 type SitePage = Node & {
@@ -5110,6 +5126,11 @@ type GetSingleRecipeQueryVariables = Exact<{
 
 
 type GetSingleRecipeQuery = { readonly contentfulSimpleRecipesGatsbyJohnSmilga: { readonly id: string, readonly title: string | null, readonly servings: number | null, readonly cookingTime: number | null, readonly preparationTime: number | null, readonly description: { readonly description: string | null } | null, readonly content: { readonly ingredients: ReadonlyArray<string | null> | null, readonly instructions: ReadonlyArray<string | null> | null, readonly tags: ReadonlyArray<string | null> | null, readonly tools: ReadonlyArray<string | null> | null } | null, readonly image: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null } | null } | null };
+
+type SeoQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SeoQuery = { readonly site: { readonly siteMetadata: { readonly inspiredBy: string | null, readonly titleTemplate: string | null, readonly siteUrl: string | null, readonly linkedInUsername: string | null, readonly twitterUsername: string | null, readonly defaultTitle: string, readonly defaultDescription: string | null, readonly defaultImage: string | null, readonly author: { readonly name: string | null, readonly place: string | null } | null } } | null };
 
 type TagsQueryVariables = Exact<{ [key: string]: never; }>;
 
