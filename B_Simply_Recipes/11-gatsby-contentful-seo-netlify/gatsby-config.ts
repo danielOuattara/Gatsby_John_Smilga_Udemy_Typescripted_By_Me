@@ -5,14 +5,19 @@ dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    siteUrl: `https://www.yourdomain.tld`,
     title: `Simple recipes`,
-    description: `Nice and clean recipes site`,
+    description: `Nice and clean recipes site. Website sharing Simple Recipes`,
     inspiredBy: `John Smilga`,
     author: {
       name: `daniel.ouattara`,
       place: `Combs la ville, France`,
     },
+    titleTemplate: `%s | Recipes `,
+    siteUrl: "https://daniel-gatsby-ts-simple-recipes.netlify.app/",
+    image: "/mainImg.png",
+    linkedInUsername: "daniel-b-ouattara-677146ab",
+    twitterUsername: "@danielOuattara",
+
     simpleData: [`item 1`, `item 2`],
     complexData: [
       {
@@ -53,7 +58,6 @@ const config: GatsbyConfig = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`, // Needed for dynamic images
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
