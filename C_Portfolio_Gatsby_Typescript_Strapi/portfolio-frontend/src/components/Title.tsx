@@ -1,5 +1,14 @@
 import * as React from "react";
 
-export default function Title() {
-  return <h2>title component</h2>;
+type TypeTitle = {
+  title: string;
+};
+
+export default function Title({ title }: TypeTitle) {
+  return (
+    <div className="section-title">
+      <h2>{title || "default title"}</h2>
+      <div className="underline"></div>
+    </div>
+  );
 }
