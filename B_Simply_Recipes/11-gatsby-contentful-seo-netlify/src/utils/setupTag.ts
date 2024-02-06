@@ -4,7 +4,7 @@ type TypesRecipes = {
   };
 }[];
 
-export default function setupTags(recipes: TypesRecipes) {
+export function setupTags(recipes: TypesRecipes) {
   const tagsObject: { [tag: string]: number } = {};
 
   recipes.forEach((recipe) => {
