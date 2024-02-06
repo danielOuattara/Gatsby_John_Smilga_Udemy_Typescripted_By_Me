@@ -2,6 +2,8 @@ node_modules/
 .cache/
 public
 src/gatsby-types.d.ts
+starter-project-gatsby-v3-strapi-portfolio-main
+starter-project-gatsby-v3-strapi-portfolio-main.zip
 
 # Logs
 logs
