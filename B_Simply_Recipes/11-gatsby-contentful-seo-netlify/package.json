@@ -14,13 +14,12 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
-    "reset": " npm rm package-lock.json && npm run clean && npm run develop"
+    "reset": "npm rm package-lock.json && npm run clean && npm run develop"
   },
   "dependencies": {
     "babel-plugin-styled-components": "^2.1.4",
     "gatsby": "^5.13.1",
     "gatsby-plugin-image": "^3.13.1",
-    "gatsby-plugin-react-helmet": "^6.13.1",
     "gatsby-plugin-sharp": "^5.13.1",
     "gatsby-plugin-styled-components": "^6.13.1",
     "gatsby-plugin-webfonts": "^2.3.2",
@@ -31,7 +30,6 @@
     "pluralize": "^8.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-helmet": "^6.1.0",
     "react-icons": "^5.0.1",
     "slugify": "^1.6.6",
     "styled-components": "^6.1.8"
