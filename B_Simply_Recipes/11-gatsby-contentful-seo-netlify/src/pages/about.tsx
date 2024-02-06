@@ -1,6 +1,6 @@
 import * as React from "react";
 import { HeadFC, PageProps, graphql, Link } from "gatsby";
-import { Layout, RecipesList } from "./../components";
+import { Layout, RecipesList, Seo } from "./../components";
 import { StaticImage, IGatsbyImageData } from "gatsby-plugin-image";
 
 type AboutQuery = {
@@ -75,4 +75,6 @@ export default function About({ data }: PageProps<AboutQuery>) {
   );
 }
 
-export const Head: HeadFC = () => <title>About Page</title>;
+export function Head() {
+  return <Seo title="About" />;
+}

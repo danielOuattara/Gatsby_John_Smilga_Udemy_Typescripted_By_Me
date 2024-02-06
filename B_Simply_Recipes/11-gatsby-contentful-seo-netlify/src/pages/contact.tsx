@@ -1,6 +1,6 @@
 import * as React from "react";
 import { HeadFC, PageProps, graphql, Link } from "gatsby";
-import { Layout, RecipesList } from "./../components";
+import { Layout, RecipesList, Seo } from "./../components";
 import { IGatsbyImageData } from "gatsby-plugin-image";
 
 type ContactQuery = {
@@ -95,4 +95,6 @@ export default function Contact({ data }: PageProps<ContactQuery>) {
   );
 }
 
-export const Head: HeadFC = () => <title>Contact Page</title>;
+export function Head() {
+  return <Seo title="Contact" />;
+}

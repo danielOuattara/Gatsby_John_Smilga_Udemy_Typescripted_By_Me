@@ -1,6 +1,6 @@
 import * as React from "react";
 import { HeadFC, PageProps, graphql, Link } from "gatsby";
-import { Layout } from "./../components";
+import { Layout, Seo } from "./../components";
 import { setupTags } from "./../utils/setupTag";
 import slugify from "slugify";
 
@@ -59,4 +59,6 @@ export default function Tags({ data }: PageProps<TagsQuery>) {
   );
 }
 
-export const Head: HeadFC = () => <title>Tags Page</title>;
+export function Head() {
+  return <Seo title="Tags" />;
+}
