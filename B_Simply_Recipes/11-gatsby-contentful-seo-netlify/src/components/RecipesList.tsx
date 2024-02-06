@@ -42,7 +42,7 @@ export default function RecipesList({ recipes }: TypesRecipes) {
             className="recipe"
           >
             <GatsbyImage
-              image={getImage(recipe.image.gatsbyImageData)}
+              image={getImage(recipe.image.gatsbyImageData) as IGatsbyImageData}
               className="recipe-img"
               alt={recipe.title}
             />
