@@ -4,7 +4,13 @@ import { graphql } from "gatsby";
 import { Hero, Services, Jobs, Projects, SEO } from "../components";
 
 export default function IndexPage() {
-  return <h1>Gatsby Portfolio Starter</h1>;
+  return (
+    <>
+      <main>
+        <Hero />
+      </main>
+    </>
+  );
 }
 
 export const Head: HeadFC = () => <title>Home Page</title>;
