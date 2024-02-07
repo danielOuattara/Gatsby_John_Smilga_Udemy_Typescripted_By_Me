@@ -20,7 +20,7 @@ type TypeJobsQuery = {
 };
 export const query = graphql`
   query Jobs {
-    allStrapiJob {
+    allStrapiJob(sort: { createdAt: DESC }) {
       totalCount
       nodes {
         position
