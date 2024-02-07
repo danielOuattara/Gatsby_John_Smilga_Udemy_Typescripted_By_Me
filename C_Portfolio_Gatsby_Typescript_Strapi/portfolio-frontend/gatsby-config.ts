@@ -1,4 +1,7 @@
 import type { GatsbyConfig } from "gatsby";
+import * as dotenv from "dotenv";
+
+dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -20,7 +23,18 @@ const config: GatsbyConfig = {
         path: `${__dirname}/src/assets/images`,
       },
     },
+    {
+      resolve: `gatsby-source-strapi`,
+      options: {
+        apiURL: process.env.STRAPI_API_URL || "http://localhost:1337",
+        accessToken: process.env.STRAPI_TOKEN,
+        collectionTypes: ["job"],
+        singleTypes: ["about"],
+      },
+    },
   ],
 };
 
 export default config;
+
+
