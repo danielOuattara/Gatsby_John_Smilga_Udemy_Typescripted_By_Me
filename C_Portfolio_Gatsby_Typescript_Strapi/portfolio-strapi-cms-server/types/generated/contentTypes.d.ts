@@ -377,10 +377,7 @@ export interface ApiJobJob extends Schema.CollectionType {
     company: Attribute.String & Attribute.Required;
     position: Attribute.String & Attribute.Required;
     date: Attribute.String & Attribute.Required;
-    description_component: Attribute.Component<
-      'description.job-description',
-      true
-    >;
+    descriptions: Attribute.Component<'description.job-description', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

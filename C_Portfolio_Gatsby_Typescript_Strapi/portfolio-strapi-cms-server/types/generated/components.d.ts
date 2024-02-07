@@ -5,9 +5,10 @@ export interface DescriptionJobDescription extends Schema.Component {
   info: {
     displayName: 'job_description';
     icon: 'attachment';
+    description: '';
   };
   attributes: {
-    name: Attribute.String & Attribute.Required;
+    item: Attribute.String & Attribute.Required;
   };
 }
 

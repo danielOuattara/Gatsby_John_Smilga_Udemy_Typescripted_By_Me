@@ -2,11 +2,12 @@
   "collectionName": "components_description_job_descriptions",
   "info": {
     "displayName": "job_description",
-    "icon": "attachment"
+    "icon": "attachment",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "name": {
+    "item": {
       "type": "string",
       "required": true
     }
