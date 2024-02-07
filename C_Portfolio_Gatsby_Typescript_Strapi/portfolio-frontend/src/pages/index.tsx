@@ -9,6 +9,7 @@ export default function IndexPage() {
       <main>
         <Hero />
         <Services />
+        <Jobs />
       </main>
     </>
   );
