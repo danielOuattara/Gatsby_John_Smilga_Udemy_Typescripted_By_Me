@@ -12,10 +12,22 @@ export interface DescriptionJobDescription extends Schema.Component {
   };
 }
 
+export interface DescriptionStackItems extends Schema.Component {
+  collectionName: 'components_description_stack_items';
+  info: {
+    displayName: 'stack_items';
+    icon: 'command';
+  };
+  attributes: {
+    title: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'description.job-description': DescriptionJobDescription;
+      'description.stack-items': DescriptionStackItems;
     }
   }
 }
