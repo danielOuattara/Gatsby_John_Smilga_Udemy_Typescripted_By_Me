@@ -4,7 +4,7 @@ import { Projects, SEO } from "../components";
 import { IGatsbyImageData } from "gatsby-plugin-image";
 
 export const query = graphql`
-  query AllProjects {
+  query ProjectsPage {
     allStrapiProject {
       totalCount
       nodes {
@@ -31,7 +31,7 @@ export const query = graphql`
   }
 `;
 
-export type TypeAllProjectsQuery = {
+export type TypeProjectsPageQuery = {
   allStrapiProject: {
     totalCount: number;
     nodes: Array<{
@@ -59,7 +59,7 @@ export type TypeAllProjectsQuery = {
 
 export default function ProjectsPage({
   data,
-}: PageProps<TypeAllProjectsQuery>) {
+}: PageProps<TypeProjectsPageQuery>) {
   const projects = data.allStrapiProject.nodes;
   return (
     <main>
