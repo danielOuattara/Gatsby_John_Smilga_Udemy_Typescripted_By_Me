@@ -60,7 +60,6 @@ export type TypeProjectsQuery = {
 
 export default function IndexPage({ data }: PageProps<TypeProjectsQuery>) {
   const projects = data.allStrapiProject.nodes;
-  console.log(projects);
   return (
     <>
       <main>

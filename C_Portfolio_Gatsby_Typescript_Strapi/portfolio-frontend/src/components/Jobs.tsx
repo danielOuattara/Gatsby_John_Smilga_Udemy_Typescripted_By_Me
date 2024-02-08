@@ -38,7 +38,6 @@ export const query = graphql`
 export default function Jobs() {
   const data: TypeJobsQuery = useStaticQuery(query);
   const jobs = data.allStrapiJob.nodes;
-  console.log(jobs);
 
   const [jobIndex, setJobIndex] = React.useState(0);
   const jobToShow = jobs[jobIndex];

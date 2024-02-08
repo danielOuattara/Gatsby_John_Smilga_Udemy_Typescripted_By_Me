@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Title, Project } from "./index";
 import { Link } from "gatsby";
-
 import { IGatsbyImageData } from "gatsby-plugin-image";
 
 type TypeProjects = Array<{
@@ -36,5 +35,21 @@ export default function Projects({
   projects,
   showLinkToProjects,
 }: TypeProjectsProp) {
-  return <h2>all projects component</h2>;
+  return (
+    <section className="section projects">
+      <Title title={title} />
+
+      <div className="section-center projects-center">
+        {projects.map((project, index) => (
+          <Project key={project.id} index={index} project={project}></Project>
+        ))}
+      </div>
+
+      {showLinkToProjects && (
+        <Link to="/projects" className="btn center-btn">
+          projects
+        </Link>
+      )}
+    </section>
+  );
 }
