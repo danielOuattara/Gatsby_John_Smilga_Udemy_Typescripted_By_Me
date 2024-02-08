@@ -5,7 +5,7 @@ import { Hero, Services, Jobs, Projects, SEO } from "../components";
 import { IGatsbyImageData } from "gatsby-plugin-image";
 
 export const query = graphql`
-  query Projects {
+  query FeaturedProjects {
     allStrapiProject(filter: { featured: { eq: true } }) {
       totalCount
       nodes {
@@ -32,7 +32,7 @@ export const query = graphql`
   }
 `;
 
-export type TypeProjectsQuery = {
+export type TypeFeaturedProjectsQuery = {
   allStrapiProject: {
     totalCount: number;
     nodes: Array<{
@@ -58,7 +58,9 @@ export type TypeProjectsQuery = {
   };
 };
 
-export default function IndexPage({ data }: PageProps<TypeProjectsQuery>) {
+export default function IndexPage({
+  data,
+}: PageProps<TypeFeaturedProjectsQuery>) {
   const projects = data.allStrapiProject.nodes;
   return (
     <>
