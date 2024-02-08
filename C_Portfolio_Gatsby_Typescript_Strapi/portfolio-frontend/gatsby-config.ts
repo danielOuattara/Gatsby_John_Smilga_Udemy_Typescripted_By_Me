@@ -28,13 +28,11 @@ const config: GatsbyConfig = {
       options: {
         apiURL: process.env.STRAPI_API_URL || "http://localhost:1337",
         accessToken: process.env.STRAPI_TOKEN,
-        collectionTypes: ["job"],
-        singleTypes: ["about"],
+        collectionTypes: ["job", "project"],
+        // singleTypes: ["about"],
       },
     },
   ],
 };
 
 export default config;
-
-

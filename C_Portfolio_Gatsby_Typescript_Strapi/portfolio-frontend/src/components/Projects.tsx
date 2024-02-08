@@ -2,6 +2,39 @@ import * as React from "react";
 import { Title, Project } from "./index";
 import { Link } from "gatsby";
 
-export default function Projects() {
+import { IGatsbyImageData } from "gatsby-plugin-image";
+
+type TypeProjects = Array<{
+  id: string;
+  title: string;
+  slug: string;
+  description: string;
+  featured: boolean;
+  github: string;
+  web_url: string;
+  stack: Array<{
+    id: string;
+    title: string;
+  }>;
+  image: {
+    localFile: {
+      childImageSharp: {
+        gatsbyImageData: IGatsbyImageData;
+      };
+    };
+  };
+}>;
+
+type TypeProjectsProp = {
+  title: string;
+  projects: TypeProjects;
+  showLinkToProjects: boolean;
+};
+
+export default function Projects({
+  title,
+  projects,
+  showLinkToProjects,
+}: TypeProjectsProp) {
   return <h2>all projects component</h2>;
 }
