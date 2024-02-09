@@ -61,4 +61,4 @@ export default function About({ data }: PageProps<TypeAboutQuery>) {
   );
 }
 
-// export const Head = () => <Seo title={"About"} />;
+export const Head = () => <SEO title={"About"} image="/about.png" />;

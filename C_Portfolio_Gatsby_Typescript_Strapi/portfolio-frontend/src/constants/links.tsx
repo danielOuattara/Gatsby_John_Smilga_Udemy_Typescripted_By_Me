@@ -19,6 +19,6 @@ const data = [
     text: "contact",
     url: "/contact/",
   },
-]
+];
 
-export default data
+export default data;

@@ -39,3 +39,5 @@ export default function Contact() {
     </section>
   );
 }
+
+export const Head = () => <SEO title={"Contact"} image="/contact.png" />;

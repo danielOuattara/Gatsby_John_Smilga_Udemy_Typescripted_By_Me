@@ -14,7 +14,12 @@ export default function Sidebar({
 }: TypeSidebarProps) {
   return (
     <aside className={isSidebarOpen ? "sidebar show-sidebar" : "sidebar"}>
-      <button className="close-btn" type="button" onClick={toggleSidebar}>
+      <button
+        id="close-btn"
+        className="close-btn"
+        type="button"
+        onClick={toggleSidebar}
+      >
         <FaTimes />
       </button>
       <div className="side-container">

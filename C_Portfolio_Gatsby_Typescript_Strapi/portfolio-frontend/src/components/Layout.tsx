@@ -1,5 +1,3 @@
-// Layout.tsx
-
 import * as React from "react";
 import { PageProps } from "gatsby";
 import { Navbar, Sidebar, Footer } from "./index";

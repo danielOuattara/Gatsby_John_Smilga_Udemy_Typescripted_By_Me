@@ -18,6 +18,7 @@ type TypeJobsQuery = {
     }>;
   };
 };
+
 export const query = graphql`
   query Jobs {
     allStrapiJob(sort: { createdAt: DESC }) {

@@ -73,3 +73,5 @@ export default function ProjectsPage({
     </main>
   );
 }
+
+export const Head = () => <SEO title={"Projects"} image="/projects.png" />;

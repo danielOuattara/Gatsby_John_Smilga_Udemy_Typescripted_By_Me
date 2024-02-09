@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link, PageProps, graphql } from "gatsby";
+import { HeadProps, Link, PageProps, graphql } from "gatsby";
 import { SEO } from "./../../components";
 
 export const query = graphql`
@@ -37,6 +37,8 @@ export default function ProjectTemplate({
   pageContext,
 }: PageProps<TypeProjectTemplateQuery, TypePageContext>) {
   const projectData = data.strapiProject;
+
+  console.log("projectData --->>> ", projectData);
   return (
     <main className="project-template-page">
       <h2>{pageContext.title}</h2>
@@ -53,3 +55,14 @@ export default function ProjectTemplate({
     </main>
   );
 }
+
+export const Head = ({ data }: HeadProps<TypeProjectTemplateQuery>) => {
+  const projectData = data.strapiProject;
+  return (
+    <SEO
+      title={projectData.title.toUpperCase()}
+      description={projectData.description}
+      image={projectData.image.localFile.publicURL}
+    />
+  );
+};

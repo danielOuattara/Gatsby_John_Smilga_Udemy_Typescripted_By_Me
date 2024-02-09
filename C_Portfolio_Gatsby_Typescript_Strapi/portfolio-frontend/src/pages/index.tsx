@@ -1,5 +1,5 @@
 import * as React from "react";
-import type { HeadFC, PageProps } from "gatsby";
+import type { PageProps } from "gatsby";
 import { graphql } from "gatsby";
 import { Hero, Services, Jobs, Projects, SEO } from "../components";
 import { IGatsbyImageData } from "gatsby-plugin-image";
@@ -63,7 +63,7 @@ export default function IndexPage({
 }: PageProps<TypeFeaturedProjectsQuery>) {
   const projects = data.allStrapiProject.nodes;
   return (
-    <>
+    <SEO>
       <main>
         <Hero />
         <Services />
@@ -74,8 +74,16 @@ export default function IndexPage({
           projects={projects}
         />
       </main>
-    </>
+    </SEO>
   );
 }
 
-export const Head: HeadFC = () => <title>Home Page</title>;
+export function Head() {
+  return (
+    <>
+      <SEO title="New Home Page" image="/home.png" />;
+      {/* Add a specific lang attr. if needed ! */}
+      {/* <html lang="ru-RU" /> */}
+    </>
+  );
+}
