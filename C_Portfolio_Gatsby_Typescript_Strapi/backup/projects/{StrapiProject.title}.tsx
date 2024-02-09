@@ -38,7 +38,7 @@ export default function ProjectTemplate({
 }: PageProps<TypeProjectTemplateQuery, TypePageContext>) {
   const projectData = data.strapiProject;
 
-  console.log("projectData --->>> ", projectData);
+  console.log("projectData  ", projectData);
   return (
     <main className="project-template-page">
       <h2>{pageContext.title}</h2>
