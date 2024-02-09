@@ -1,23 +1,29 @@
+// gatsby-node.ts
+
 import { GatsbyNode } from "gatsby";
 import path from "path";
 
-type TypeProjectsGatsbyNode = {
+type TypeGetProjectsPageGatsbyNodes = {
   allStrapiProject: {
     nodes: Array<{
       slug: string;
+      title: string
     }>;
   };
 };
 
+
+
 export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
-  actions,
+  actions
 }) => {
-  const { data, errors } = await graphql<TypeProjectsGatsbyNode>(`
-    query ProjectsPage {
+  const { data, errors } = await graphql<TypeGetProjectsPageGatsbyNodes>(`
+    query GetProjectsPageGatsbyNode {
       allStrapiProject {
         nodes {
           slug
+          title
         }
       }
     }
@@ -28,7 +34,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
   }
 
   if (data) {
-    console.log("data ==>> ", data);
     data.allStrapiProject.nodes.forEach((project) => {
       return actions.createPage({
         path: "/projects/" + project.slug,
@@ -36,7 +41,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           "./src/templates/projectTemplateGatsbyNode.tsx",
         ),
         context: {
-          slug: project.slug,
+          title: project.title,
         },
       });
     });
