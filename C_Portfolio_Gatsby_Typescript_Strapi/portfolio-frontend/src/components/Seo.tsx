@@ -12,7 +12,6 @@ export const query = graphql`
         titleTemplate
         siteUrl
         image
-        linkedInUsername
         twitterUsername
         author {
           name
@@ -32,7 +31,6 @@ type TypeSEOQuery = {
       titleTemplate: string;
       siteUrl: string;
       image: string;
-      linkedInUsername: string;
       twitterUsername: string;
       author: {
         name: string;
@@ -65,7 +63,6 @@ export default function SEO({
     description: defaultDescription,
     image: defaultImage,
     siteUrl,
-    linkedInUsername,
     twitterUsername,
     author: { name, place },
   } = data.site.siteMetadata;
@@ -76,7 +73,6 @@ export default function SEO({
     description: description || defaultDescription,
     image: image ? `${siteUrl}${image} ` : `${siteUrl}${defaultImage}`,
     url: `${siteUrl}${pathname || ``}`,
-    linkedInUsername,
     twitterUsername,
     name,
     place,
@@ -85,7 +81,7 @@ export default function SEO({
   return (
     <>
       <html lang="en-UK" />
-      <title id="title"> {`${seo.title} | Portfolio FullStack Dev`}</title>
+      <title id="title"> {`${seo.title} | Portfolio FullStack `}</title>
       {/* ok with linkedIn + facebook */}
       <meta property="og:title" content={seo.title} />
       <meta property="og:image" content={seo.image} />

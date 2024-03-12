@@ -13,7 +13,6 @@ const config: GatsbyConfig = {
       name: `daniel.ouattara`,
       place: `Combs la ville, France`,
     },
-    titleTemplate: `%s | Fullstack Portfolio `,
     siteUrl: "https://daniel-gatsby-ts-strapi-portfolio.netlify.app",
     image: "/home.png",
     linkedInUsername: "daniel-b-ouattara-677146ab",
