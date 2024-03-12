@@ -57,7 +57,6 @@ export default function ProjectTemplateGatsbyNode({
 
 export const Head = ({ data }: HeadProps<TypeProjectTemplateQuery>) => {
   const projectData = data.strapiProject;
-  console.log("projectData = ", projectData);
   return (
     <SEO
       title={projectData.title.toUpperCase()}

@@ -63,18 +63,16 @@ export default function IndexPage({
 }: PageProps<TypeFeaturedProjectsQuery>) {
   const projects = data.allStrapiProject.nodes;
   return (
-    <SEO>
-      <main>
-        <Hero />
-        <Services />
-        <Jobs />
-        <Projects
-          showLinkToProjects={true}
-          title="featured projects"
-          projects={projects}
-        />
-      </main>
-    </SEO>
+    <main>
+      <Hero />
+      <Services />
+      <Jobs />
+      <Projects
+        showLinkToProjects={true}
+        title="featured projects"
+        projects={projects}
+      />
+    </main>
   );
 }
 
