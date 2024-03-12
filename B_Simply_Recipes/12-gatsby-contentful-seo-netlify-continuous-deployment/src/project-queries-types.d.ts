@@ -1042,6 +1042,7 @@ type ContentfulPortfolioDiplomasSortInput = {
 };
 
 type ContentfulPortfolioProjects = ContentfulEntry & ContentfulReference & Node & {
+  readonly category: Maybe<Scalars['String']>;
   /** Returns the first child node of type contentfulPortfolioProjectsDescriptionTextNode or null if there are no children of given type on this node */
   readonly childContentfulPortfolioProjectsDescriptionTextNode: Maybe<contentfulPortfolioProjectsDescriptionTextNode>;
   readonly children: ReadonlyArray<Node>;
@@ -1062,7 +1063,6 @@ type ContentfulPortfolioProjects = ContentfulEntry & ContentfulReference & Node 
   readonly sys: Maybe<ContentfulPortfolioProjectsSys>;
   readonly technologies: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly title: Maybe<Scalars['String']>;
-  readonly type: Maybe<Scalars['String']>;
   readonly updatedAt: Maybe<Scalars['Date']>;
   readonly url_github: Maybe<Scalars['String']>;
   readonly url_website: Maybe<Scalars['String']>;
@@ -1130,6 +1130,7 @@ type ContentfulPortfolioProjectsEdge = {
 };
 
 type ContentfulPortfolioProjectsFieldSelector = {
+  readonly category: InputMaybe<FieldSelectorEnum>;
   readonly childContentfulPortfolioProjectsDescriptionTextNode: InputMaybe<contentfulPortfolioProjectsDescriptionTextNodeFieldSelector>;
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly childrenContentfulPortfolioProjectsDescriptionTextNode: InputMaybe<contentfulPortfolioProjectsDescriptionTextNodeFieldSelector>;
@@ -1148,13 +1149,13 @@ type ContentfulPortfolioProjectsFieldSelector = {
   readonly sys: InputMaybe<ContentfulPortfolioProjectsSysFieldSelector>;
   readonly technologies: InputMaybe<FieldSelectorEnum>;
   readonly title: InputMaybe<FieldSelectorEnum>;
-  readonly type: InputMaybe<FieldSelectorEnum>;
   readonly updatedAt: InputMaybe<FieldSelectorEnum>;
   readonly url_github: InputMaybe<FieldSelectorEnum>;
   readonly url_website: InputMaybe<FieldSelectorEnum>;
 };
 
 type ContentfulPortfolioProjectsFilterInput = {
+  readonly category: InputMaybe<StringQueryOperatorInput>;
   readonly childContentfulPortfolioProjectsDescriptionTextNode: InputMaybe<contentfulPortfolioProjectsDescriptionTextNodeFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly childrenContentfulPortfolioProjectsDescriptionTextNode: InputMaybe<contentfulPortfolioProjectsDescriptionTextNodeFilterListInput>;
@@ -1173,7 +1174,6 @@ type ContentfulPortfolioProjectsFilterInput = {
   readonly sys: InputMaybe<ContentfulPortfolioProjectsSysFilterInput>;
   readonly technologies: InputMaybe<StringQueryOperatorInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
-  readonly type: InputMaybe<StringQueryOperatorInput>;
   readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
   readonly url_github: InputMaybe<StringQueryOperatorInput>;
   readonly url_website: InputMaybe<StringQueryOperatorInput>;
@@ -1221,6 +1221,7 @@ type ContentfulPortfolioProjectsGroupConnection_sumArgs = {
 };
 
 type ContentfulPortfolioProjectsSortInput = {
+  readonly category: InputMaybe<SortOrderEnum>;
   readonly childContentfulPortfolioProjectsDescriptionTextNode: InputMaybe<contentfulPortfolioProjectsDescriptionTextNodeSortInput>;
   readonly children: InputMaybe<NodeSortInput>;
   readonly childrenContentfulPortfolioProjectsDescriptionTextNode: InputMaybe<contentfulPortfolioProjectsDescriptionTextNodeSortInput>;
@@ -1239,7 +1240,6 @@ type ContentfulPortfolioProjectsSortInput = {
   readonly sys: InputMaybe<ContentfulPortfolioProjectsSysSortInput>;
   readonly technologies: InputMaybe<SortOrderEnum>;
   readonly title: InputMaybe<SortOrderEnum>;
-  readonly type: InputMaybe<SortOrderEnum>;
   readonly updatedAt: InputMaybe<SortOrderEnum>;
   readonly url_github: InputMaybe<SortOrderEnum>;
   readonly url_website: InputMaybe<SortOrderEnum>;
@@ -3365,6 +3365,7 @@ type Query_contentfulPortfolioDiplomasArgs = {
 
 
 type Query_contentfulPortfolioProjectsArgs = {
+  category: InputMaybe<StringQueryOperatorInput>;
   childContentfulPortfolioProjectsDescriptionTextNode: InputMaybe<contentfulPortfolioProjectsDescriptionTextNodeFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
   childrenContentfulPortfolioProjectsDescriptionTextNode: InputMaybe<contentfulPortfolioProjectsDescriptionTextNodeFilterListInput>;
@@ -3383,7 +3384,6 @@ type Query_contentfulPortfolioProjectsArgs = {
   sys: InputMaybe<ContentfulPortfolioProjectsSysFilterInput>;
   technologies: InputMaybe<StringQueryOperatorInput>;
   title: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
   updatedAt: InputMaybe<DateQueryOperatorInput>;
   url_github: InputMaybe<StringQueryOperatorInput>;
   url_website: InputMaybe<StringQueryOperatorInput>;

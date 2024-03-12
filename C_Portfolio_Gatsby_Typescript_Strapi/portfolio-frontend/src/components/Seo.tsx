@@ -43,7 +43,7 @@ type TypeSEOQuery = {
 };
 
 type TypeSEOProps = {
-  title?: string;
+  title: string;
   description?: string;
   image?: string;
   children?: React.ReactNode;
@@ -81,8 +81,6 @@ export default function SEO({
     name,
     place,
   };
-
-  console.log("seo = ", seo);
 
   return (
     <>

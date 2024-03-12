@@ -81,7 +81,7 @@ export default function IndexPage({
 export function Head() {
   return (
     <>
-      <SEO title="New Home Page" image="/home.png" />;
+      <SEO title={"Home"} image="/home.png" />;
       {/* Add a specific lang attr. if needed ! */}
       {/* <html lang="ru-RU" /> */}
     </>
