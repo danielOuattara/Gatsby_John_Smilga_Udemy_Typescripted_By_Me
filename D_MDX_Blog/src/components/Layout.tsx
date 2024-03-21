@@ -10,7 +10,11 @@ import { Footer, Navbar, Sidebar } from "./index";
 
 import { type PageProps } from "gatsby";
 
-export default function Layout({ children }: PageProps) {
+interface ILayoutProps {
+  children: React.ReactNode;
+}
+
+export default function Layout({ children }: ILayoutProps) {
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
   return (
     <>
