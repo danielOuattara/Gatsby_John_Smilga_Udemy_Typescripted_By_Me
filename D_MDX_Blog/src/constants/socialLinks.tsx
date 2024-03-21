@@ -1,9 +1,6 @@
 import * as React from "react";
-import {
-  FaFacebookSquare,
-  FaDribbbleSquare,
-  FaTwitterSquare,
-} from "react-icons/fa";
+import { FaFacebookSquare, FaDribbbleSquare } from "react-icons/fa";
+import { FaSquareXTwitter } from "react-icons/fa6";
 import { Link, PageProps } from "gatsby";
 
 interface ISocialLinksProps {
@@ -25,7 +22,7 @@ export default function SocialLinks({ styleClass }: ISocialLinksProps) {
       </li>
       <li>
         <a href="https://twitter.com">
-          <FaTwitterSquare className="social-icon twitter-icon"></FaTwitterSquare>
+          <FaSquareXTwitter className="social-icon twitter-icon"></FaSquareXTwitter>
         </a>
       </li>
     </ul>

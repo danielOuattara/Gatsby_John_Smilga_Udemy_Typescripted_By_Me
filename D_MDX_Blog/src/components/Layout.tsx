@@ -11,12 +11,19 @@ import { Footer, Navbar, Sidebar } from "./index";
 import { type PageProps } from "gatsby";
 
 export default function Layout({ children }: PageProps) {
+  const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
   return (
     <>
-      <Navbar />
-      {/* <Sidebar /> */}
+      <Navbar
+        setIsSidebarOpen={setIsSidebarOpen}
+        isSidebarOpen={isSidebarOpen}
+      />
+      <Sidebar
+        setIsSidebarOpen={setIsSidebarOpen}
+        isSidebarOpen={isSidebarOpen}
+      />
       <main>{children}</main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

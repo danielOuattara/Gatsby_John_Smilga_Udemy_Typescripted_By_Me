@@ -4,7 +4,12 @@ import { FaBars } from "react-icons/fa";
 import logo from "../assets/logo.svg";
 import { Links, SocialLinks } from "../constants";
 
-export default function Navbar() {
+interface INavbar {
+  setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isSidebarOpen: boolean;
+}
+
+export default function Navbar({ setIsSidebarOpen, isSidebarOpen }: INavbar) {
   return (
     <nav className="navbar">
       <div className="nav-center">
@@ -14,7 +19,7 @@ export default function Navbar() {
           </Link>
           <button
             className="toggle-btn"
-            // onClick={() => props.setIsSidebarOpen(!props.isSidebarOpen)}
+            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           >
             <FaBars />
           </button>
