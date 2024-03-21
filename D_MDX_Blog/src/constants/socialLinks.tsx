@@ -6,7 +6,7 @@ import {
 } from "react-icons/fa";
 import { Link, PageProps } from "gatsby";
 
-interface ISocialLinksProps extends PageProps {
+interface ISocialLinksProps {
   styleClass: string;
 }
 

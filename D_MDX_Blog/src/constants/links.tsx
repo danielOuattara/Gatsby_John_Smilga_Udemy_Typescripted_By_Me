@@ -1,8 +1,9 @@
 import * as React from "react";
-import { Link, PageProps } from "gatsby";
+import { Link } from "gatsby";
 
-interface ILinksProps extends PageProps {
+interface ILinksProps {
   styleClass: string;
+  children?: React.ReactNode;
 }
 export default function Links({ styleClass, children }: ILinksProps) {
   return (

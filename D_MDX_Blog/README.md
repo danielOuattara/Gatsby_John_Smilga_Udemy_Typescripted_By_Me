@@ -25,19 +25,19 @@
 5. Error Page
 6. Newsletter
 
-```html
-<form
-  className="contact-form"
-  name="contact"
-  method="post"
-  netlify-honeypot="bot-field"
-  data-netlify="true"
-  action="/success"
->
-  <input type="hidden" name="bot-field" />
-  <input type="hidden" name="form-name" value="contact" />
-</form>
-```
+   ```html
+   <form
+   className="contact-form"
+   name="contact"
+   method="post"
+   netlify-honeypot="bot-field"
+   data-netlify="true"
+   action="/success"
+   >
+   <input type="hidden" name="bot-field" />
+   <input type="hidden" name="form-name" value="contact" />
+   </form>
+   ```
 
 7. Success Page (optional);
 
@@ -57,16 +57,16 @@
 1. Setup Posts Folder
 2. Add New filesystem Instance to gatsby-config
 
-```js
-{
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `posts`,
-        path: `${__dirname}/src/posts`,
+   ```js
+   {
+         resolve: `gatsby-source-filesystem`,
+         options: {
+         name: `posts`,
+         path: `${__dirname}/src/posts`,
+         },
       },
-    },
 
-```
+   ```
 
 4. Create a Brand New Folder For Post
    Won't Query Name - setup is up to you
@@ -98,14 +98,14 @@
    remove - 'gatsby-plugin-mdx'
    add
 
-```js
-{
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        gatsbyRemarkPlugins: [{ resolve: "gatsby-remark-images" }],
+   ```js
+   {
+         resolve: `gatsby-plugin-mdx`,
+         options: {
+         gatsbyRemarkPlugins: [{ resolve: "gatsby-remark-images" }],
+         },
       },
-    },
-```
+   ```
 
 4. Restart the server
 5. Whitespace gotchas and "gatsby clean"
@@ -113,7 +113,7 @@
 
 ## Videos
 
-[Gatsby Video Reference] : https://www.gatsbyjs.org/docs/working-with-video/
+[Gatsby Video Reference] : <https://www.gatsbyjs.org/docs/working-with-video/>
 
 ### Reg Video
 
@@ -130,15 +130,13 @@
 ### MDX Wrapper
 
 1. Gatsby wrapRootElement
-   [Wrap Root Element ] : https://www.gatsbyjs.org/docs/browser-apis/#wrapRootElement
+   [Wrap Root Element ] : <https://www.gatsbyjs.org/docs/browser-apis/#wrapRootElement>
 2. MDX
-   [MDX Reference] : https://mdxjs.com/getting-started
+   [MDX Reference] : <https://mdxjs.com/getting-started>
 3. Gatsby/MDX Reference
-   [ Elements Reference] : https://www.gatsbyjs.org/docs/mdx/customizing-components/
+   [ Elements Reference] : <https://www.gatsbyjs.org/docs/mdx/customizing-components/>
 
 ### prism-react-renderer
-
-[docs]: https://github.com/FormidableLabs/prism-react-renderer
 
 ```
 npm install --save prism-react-renderer

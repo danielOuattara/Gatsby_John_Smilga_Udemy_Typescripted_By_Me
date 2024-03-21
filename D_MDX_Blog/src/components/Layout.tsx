@@ -6,16 +6,17 @@
  */
 
 import * as React from "react";
-import Navbar from "./Navbar";
-import Sidebar from "./Sidebar";
-import Footer from "./Footer";
+import { Footer, Navbar, Sidebar } from "./index";
 
 import { type PageProps } from "gatsby";
 
 export default function Layout({ children }: PageProps) {
   return (
     <>
+      <Navbar />
+      {/* <Sidebar /> */}
       <main>{children}</main>
+      {/* <Footer /> */}
     </>
   );
 }
