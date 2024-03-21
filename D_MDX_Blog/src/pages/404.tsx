@@ -4,37 +4,34 @@ import Layout from "../components/Layout";
 
 export default function NotFoundPage() {
   return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry 😔, we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
+    <Layout>
+      <section className="error-page">
+        <div className="page-center">
+          <span>404</span>
+          <h4>Page cannot be found</h4>
+          <p style={paragraphStyles}>
+            Sorry 😔, we couldn’t find what you were looking for.
             <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
+            {process.env.NODE_ENV === "development" ? (
+              <>
+                <br />
+                Try creating a page in{" "}
+                <code style={codeStyles}>src/pages/</code>.
+                <br />
+              </>
+            ) : null}
             <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
+          </p>
+          <Link to="/" className="btn">
+            Back to home
+          </Link>
+        </div>
+      </section>
+    </Layout>
   );
 }
 
 export const Head: HeadFC = () => <title>Not found</title>;
-
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-};
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-};
 
 const paragraphStyles = {
   marginBottom: 48,
