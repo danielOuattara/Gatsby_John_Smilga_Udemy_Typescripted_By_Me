@@ -9,7 +9,6 @@ export const query = graphql`
         title
         description
         inspiredBy
-        titleTemplate
         siteUrl
         image
         twitterUsername
@@ -28,7 +27,6 @@ type TypeSEOQuery = {
       title: string;
       description: string;
       inspiredBy: string;
-      titleTemplate: string;
       siteUrl: string;
       image: string;
       twitterUsername: string;
