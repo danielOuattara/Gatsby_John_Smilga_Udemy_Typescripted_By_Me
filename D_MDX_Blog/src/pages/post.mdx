@@ -8,6 +8,8 @@ category: HTML&CSS
 readTime: 50
 ---
 
+import { Link } from "gatsby"
+
 
 # my first mdx file
 
@@ -77,5 +79,28 @@ laudantium voluptate doloremque enim reiciendis.
 
 
 
-<h2>Heading 2</h2>
+<h2>Heading 2 also as JSX</h2>
+
+## Frist React Component
+
+<Link to="/" className="btn center-btn">Go To Home</Link>
+<Link to="/posts" className="btn center-btn">Go To all posts</Link>
+
+```jsx
+export default function NotFoundPage() {
+    return (
+        <Layout>
+      <section className="error-page">
+        <div className="page-center">
+          <span>404</span>
+          <h4>Page cannot be found</h4>
+          <Link to="/" className="btn">
+            Back to home
+          </Link>
+        </div>
+      </section>
+    </Layout>
+  );
+}
+```
 </section>
