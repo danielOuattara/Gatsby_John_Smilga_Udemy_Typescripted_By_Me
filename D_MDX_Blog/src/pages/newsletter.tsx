@@ -12,7 +12,7 @@ export default function NewsLetter() {
           <form
             className="contact-form"
             name="contact"
-            method="post"
+            method="POST"
             netlify-honeypot="bot-field"
             data-netlify="true"
             action="/success"
