@@ -14,6 +14,15 @@ const config: GatsbyConfig = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-mdx`,
+
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages`,
+      },
+    },
 
     {
       resolve: `gatsby-source-filesystem`,
@@ -32,7 +41,7 @@ const config: GatsbyConfig = {
     // {
     //   resolve: `gatsby-plugin-mdx`,
     //   options: {
-    //     gatsbyRemarkPlugins: [{ resolve: 'gatsby-remark-images' }],
+    //     gatsbyRemarkPlugins: [{ resolve: "gatsby-remark-images" }],
     //   },
     // },
   ],
