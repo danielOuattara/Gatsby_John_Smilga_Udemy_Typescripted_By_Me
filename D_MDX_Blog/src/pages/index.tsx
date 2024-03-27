@@ -4,7 +4,9 @@ import { Hero, Layout, Posts } from "../components";
 import { graphql } from "gatsby";
 import { IGatsbyImageData } from "gatsby-plugin-image";
 
-export default function IndexPage({ data }: PageProps<TypeFeaturedBlogsQuery>) {
+export default function IndexPage({
+  data,
+}: PageProps<TypeFeaturedBlogsPostQuery>) {
   return (
     <Layout>
       <Hero showPersonImg={true} />
@@ -13,7 +15,7 @@ export default function IndexPage({ data }: PageProps<TypeFeaturedBlogsQuery>) {
   );
 }
 
-type TypeFeaturedBlogsQuery = {
+type TypeFeaturedBlogsPostQuery = {
   allMdx: {
     nodes: Array<{
       id: string;
