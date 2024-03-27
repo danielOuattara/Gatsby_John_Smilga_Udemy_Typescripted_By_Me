@@ -5,10 +5,10 @@ import { graphql } from "gatsby";
 import { IGatsbyImageData } from "gatsby-plugin-image";
 
 export default function IndexPage({ data }: PageProps<TypeFeaturedBlogsQuery>) {
-  console.log(data.allMdx.nodes);
   return (
     <Layout>
       <Hero showPersonImg={true} />
+      <Posts title="recently published " posts={data.allMdx.nodes} />
     </Layout>
   );
 }
@@ -26,9 +26,9 @@ type TypeFeaturedBlogsQuery = {
         slug: string;
         date: string;
         image: {
-          childrenImageSharp: Array<{
+          childImageSharp: {
             gatsbyImageData: IGatsbyImageData;
-          }>;
+          };
         };
       };
     }>;
@@ -48,7 +48,7 @@ export const query = graphql`
           slug
           date(formatString: "MMMM Do, YYYY")
           image {
-            childrenImageSharp {
+            childImageSharp {
               gatsbyImageData
             }
           }
