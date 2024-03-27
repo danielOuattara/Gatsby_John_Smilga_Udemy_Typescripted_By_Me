@@ -6,7 +6,7 @@ import { IGatsbyImageData } from "gatsby-plugin-image";
 
 export default function IndexPage({
   data,
-}: PageProps<TypeFeaturedBlogsPostQuery>) {
+}: PageProps<RecentlyPostedBlogsQuery>) {
   return (
     <Layout>
       <Hero showPersonImg={true} />
@@ -15,7 +15,7 @@ export default function IndexPage({
   );
 }
 
-type TypeFeaturedBlogsPostQuery = {
+type RecentlyPostedBlogsQuery = {
   allMdx: {
     nodes: Array<{
       id: string;
@@ -38,7 +38,7 @@ type TypeFeaturedBlogsPostQuery = {
 };
 
 export const query = graphql`
-  query FeaturedBlogs {
+  query RecentlyPostedBlogs {
     allMdx(limit: 3, sort: { frontmatter: { date: DESC } }) {
       nodes {
         id
