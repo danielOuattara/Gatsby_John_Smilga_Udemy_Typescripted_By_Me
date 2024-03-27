@@ -7,16 +7,14 @@ type TypeGetProjectsPageGatsbyNodes = {
   allStrapiProject: {
     nodes: Array<{
       slug: string;
-      title: string
+      title: string;
     }>;
   };
 };
 
-
-
 export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
-  actions
+  actions,
 }) => {
   const { data, errors } = await graphql<TypeGetProjectsPageGatsbyNodes>(`
     query GetProjectsPageGatsbyNode {
