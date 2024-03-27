@@ -28,7 +28,6 @@ interface ISinglePostProps {
 }
 
 export default function Post({ post }: ISinglePostProps) {
-  console.log(post.frontmatter.image);
   return (
     <Wrapper>
       <GatsbyImage
