@@ -7,11 +7,10 @@ import { GatsbyNode } from "gatsby";
 type TypeGatsbyNodeQuery = {
   allMdxPostSlug: {
     nodes: Array<{
-      frontmatter: {
-        slug: string;
-      };
+      frontmatter: { slug: string };
     }>;
   };
+  allCategories: { distinct: Array<string> };
 };
 
 export const createPages: GatsbyNode["createPages"] = async ({
@@ -27,6 +26,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
           }
         }
       }
+      allCategories: allMdx {
+        distinct(field: { frontmatter: { category: SELECT } })
+      }
     }
   `);
 
@@ -40,6 +42,14 @@ export const createPages: GatsbyNode["createPages"] = async ({
         path: `/posts/${post.frontmatter.slug}`,
         component: path.resolve(`src/templates/post-template.tsx`),
         context: { slug: post.frontmatter.slug },
+      });
+    });
+
+    data.allCategories.distinct.forEach((category) => {
+      actions.createPage({
+        path: `/categories/${category.toLowerCase()}`,
+        component: path.resolve(`src/templates/category-template.tsx`),
+        context: { category },
       });
     });
   }
