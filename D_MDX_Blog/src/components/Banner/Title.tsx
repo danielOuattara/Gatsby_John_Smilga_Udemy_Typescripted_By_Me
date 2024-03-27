@@ -1,8 +1,17 @@
 import * as React from "react";
 import styled from "styled-components";
 
-export default function Title() {
-  return <Wrapper>Banner Title</Wrapper>;
+type TypeTitleProps = {
+  title: string;
+};
+
+export default function Title({ title }: TypeTitleProps) {
+  return (
+    <Wrapper>
+      <h4>{title}</h4>
+      <div className="line"></div>
+    </Wrapper>
+  );
 }
 
 const Wrapper = styled.div`

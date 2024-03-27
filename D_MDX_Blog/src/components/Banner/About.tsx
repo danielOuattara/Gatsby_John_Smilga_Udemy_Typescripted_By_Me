@@ -5,7 +5,25 @@ import Title from "./Title";
 import styled from "styled-components";
 
 export default function About() {
-  return <Wrapper>Banner About</Wrapper>;
+  return (
+    <Wrapper>
+      <Title title={"about me"} />
+      <StaticImage
+        src="./../../assets/banner.jpeg"
+        alt="author"
+        layout="fixed"
+        width={100}
+        height={100}
+        className="img"
+      />
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit
+        repellat similique ratione eius perferendis earum?
+      </p>
+
+      <SocialLinks styleClass={"banner-icons"} />
+    </Wrapper>
+  );
 }
 
 const Wrapper = styled.div`

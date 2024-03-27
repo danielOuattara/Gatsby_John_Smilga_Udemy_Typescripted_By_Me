@@ -5,7 +5,13 @@ import Recent from "./Recent";
 import BannerCategories from "./BannerCategories";
 
 export default function Banner() {
-  return <Wrapper>Banner</Wrapper>;
+  return (
+    <Wrapper>
+      <About />
+      <Recent />
+      <BannerCategories />
+    </Wrapper>
+  );
 }
 
 const Wrapper = styled.aside`
