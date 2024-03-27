@@ -1,13 +1,29 @@
 import * as React from "react";
-import Post from "./Post";
+import Post, { IBlogPost } from "./Post";
 import Banner from "../Banner";
-import type { PageProps } from "gatsby";
 
-interface IPostsProps extends PageProps {
-  posts: [];
+interface IPostsProps {
+  posts: IBlogPost[];
   title: string;
 }
 
 export default function PostsPage({ posts, title }: IPostsProps) {
-  return <h4>posts component</h4>;
+  return (
+    <section className="posts">
+      <h3 className="posts-title">{title}</h3>
+      <div className="posts-center">
+        {/* --- posts left column --- */}
+        <article>
+          {posts.map((post) => (
+            <Post key={post.id} post={post} />
+          ))}
+        </article>
+
+        {/* --- banner right column --- */}
+        <article>
+          <Banner />
+        </article>
+      </div>
+    </section>
+  );
 }

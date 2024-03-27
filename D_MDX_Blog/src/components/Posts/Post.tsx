@@ -1,12 +1,63 @@
 import * as React from "react";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { FaRegClock } from "react-icons/fa";
+import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
+import { FaRegCalendarAlt, FaRegClock } from "react-icons/fa";
 import { IoMdArrowRoundForward } from "react-icons/io";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
-export default function Post() {
-  return <h4>single post</h4>;
+export interface IBlogPost {
+  id: string;
+  excerpt: string;
+  frontmatter: {
+    title: string;
+    author: string;
+    category: string;
+    readTime: number;
+    slug: string;
+    date: string;
+    image: {
+      childImageSharp: {
+        gatsbyImageData: IGatsbyImageData;
+      };
+    };
+  };
+}
+
+interface ISinglePostProps {
+  post: IBlogPost;
+}
+
+export default function Post({ post }: ISinglePostProps) {
+  console.log(post.frontmatter.image);
+  return (
+    <Wrapper>
+      <GatsbyImage
+        image={getImage(post.frontmatter.image) as IGatsbyImageData}
+        alt={post.frontmatter.title}
+        className="img"
+      />
+      <div className="info">
+        <span className="category">{post.frontmatter.category}</span>
+        <h3>{post.frontmatter.title}</h3>
+
+        <p>{post.excerpt}</p>
+        <Link to={`/posts/${post.frontmatter.slug}`} className="link">
+          Continue Reading <IoMdArrowRoundForward />
+        </Link>
+        <footer>
+          <span className="date">
+            {" "}
+            <FaRegCalendarAlt className="icon" />
+            {post.frontmatter.date}
+          </span>
+          <span className="date">
+            <FaRegClock className="icon" />
+            {post.frontmatter.readTime} minutes reading
+          </span>
+        </footer>
+      </div>
+    </Wrapper>
+  );
 }
 
 const Wrapper = styled.article`
