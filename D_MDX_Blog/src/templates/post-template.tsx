@@ -1,13 +1,102 @@
 import * as React from "react";
 import { Layout, Hero, Banner } from "../components";
 import styled from "styled-components";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { graphql } from "gatsby";
+import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
+import { graphql, PageProps } from "gatsby";
 // import { MDXRenderer } from "gatsby-plugin-mdx";
+import { MDXProvider } from "@mdx-js/react";
 
-export default function PostTemplate() {
-  return <h2>post template</h2>;
+export default function PostTemplate({
+  data,
+}: PageProps<TypeGetSinglePostQuery>) {
+  const { frontmatter } = data.mdx;
+
+  console.log("data = ", data);
+
+  return (
+    <Layout>
+      <Hero showPersonImg={true} />
+      <Wrapper>
+        {/* ------- post info-------- */}
+        <article>
+          <GatsbyImage
+            image={getImage(frontmatter.image) as IGatsbyImageData}
+            alt={frontmatter.title}
+            className="main-img"
+          />
+          <div className="post-info">
+            <span>{frontmatter.category}</span>
+            <h2>{frontmatter.title}</h2>
+            <p>{frontmatter.date}</p>
+            <div className="underline"></div>
+          </div>
+
+          {/* <MDXProvider components={frontmatter.embeddedImages}>
+            {frontmatter.embeddedImages && (
+              <>
+                <GatsbyImage
+                  image={getImage(frontmatter.embeddedImages[0])}
+                  alt="backroad"
+                  className="first-inline-img"
+                />
+                <GatsbyImage
+                  image={getImage(frontmatter.embeddedImages[1])}
+                  alt="backroad"
+                  className="first-inline-img"
+                />
+                <GatsbyImage
+                  image={getImage(frontmatter.embeddedImages[2])}
+                  alt="backroad"
+                  className="first-inline-img"
+                />
+              </>
+            )}
+            {props.children}
+          </MDXProvider> */}
+        </article>
+        {/* ------- banner -------- */}
+      </Wrapper>
+    </Layout>
+  );
 }
+
+type TypeGetSinglePostQuery = {
+  mdx: {
+    id: string;
+    body: string;
+    frontmatter: {
+      category: string;
+      date: string;
+      slug: string;
+      title: string;
+      image: {
+        childImageSharp: {
+          gatsbyImageData: IGatsbyImageData;
+        };
+      };
+    };
+  };
+};
+
+export const query = graphql`
+  query GetSinglePost($slug: String) {
+    mdx(frontmatter: { slug: { eq: $slug } }) {
+      id
+      frontmatter {
+        category
+        date(formatString: "MMMM Do, YYYY")
+        slug
+        title
+        image {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
+      }
+      body
+    }
+  }
+`;
 
 const Wrapper = styled.section`
   width: 85vw;
