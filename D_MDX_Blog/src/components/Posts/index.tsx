@@ -1,6 +1,6 @@
 import * as React from "react";
 import Post, { IBlogPost } from "./Post";
-import Banner from "../Banner";
+import { Banner } from "./../index";
 
 interface IPostsProps {
   posts: IBlogPost[];
