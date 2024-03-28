@@ -1,6 +1,6 @@
 import * as React from "react";
 import Links from "../constants/links";
-import Categories from "../components/Categories";
+import { Categories } from "./../components";
 import { IoMdClose } from "react-icons/io";
 
 interface ISideBar {
