@@ -3,19 +3,16 @@ import { Layout, Hero, Banner } from "../components";
 import styled from "styled-components";
 import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 import { graphql, PageProps } from "gatsby";
-// import { MDXRenderer } from "gatsby-plugin-mdx";
-import { MDXProvider } from "@mdx-js/react";
 
 export default function PostTemplate({
   data,
+  children,
 }: PageProps<TypeGetSinglePostQuery>) {
   const { frontmatter } = data.mdx;
 
-  console.log("data = ", data);
-
   return (
     <Layout>
-      <Hero showPersonImg={true} />
+      <Hero showPersonImg={false} />
       <Wrapper>
         {/* ------- post info-------- */}
         <article>
@@ -30,31 +27,13 @@ export default function PostTemplate({
             <p>{frontmatter.date}</p>
             <div className="underline"></div>
           </div>
-
-          {/* <MDXProvider components={frontmatter.embeddedImages}>
-            {frontmatter.embeddedImages && (
-              <>
-                <GatsbyImage
-                  image={getImage(frontmatter.embeddedImages[0])}
-                  alt="backroad"
-                  className="first-inline-img"
-                />
-                <GatsbyImage
-                  image={getImage(frontmatter.embeddedImages[1])}
-                  alt="backroad"
-                  className="first-inline-img"
-                />
-                <GatsbyImage
-                  image={getImage(frontmatter.embeddedImages[2])}
-                  alt="backroad"
-                  className="first-inline-img"
-                />
-              </>
-            )}
-            {props.children}
-          </MDXProvider> */}
+          {children}
         </article>
+
         {/* ------- banner -------- */}
+        <article>
+          <Banner />
+        </article>
       </Wrapper>
     </Layout>
   );
@@ -63,7 +42,7 @@ export default function PostTemplate({
 type TypeGetSinglePostQuery = {
   mdx: {
     id: string;
-    body: string;
+    // body: string;
     frontmatter: {
       category: string;
       date: string;
@@ -93,7 +72,7 @@ export const query = graphql`
           }
         }
       }
-      body
+      # body
     }
   }
 `;

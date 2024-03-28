@@ -14,8 +14,6 @@ const config: GatsbyConfig = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-styled-components`,
-    `gatsby-plugin-mdx`,
-
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -36,6 +34,20 @@ const config: GatsbyConfig = {
       options: {
         name: `posts`,
         path: `${__dirname}/src/posts`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+        // gatsbyRemarkPlugins: [
+        //   {
+        //     resolve: `gatsby-remark-images`,
+        //     options: {
+        //       maxWidth: 590,
+        //     },
+        //   },
+        // ],
       },
     },
     // {

@@ -1,13 +1,14 @@
-import path from "node:path";
-
+import { resolve } from "node:path";
 import { GatsbyNode } from "gatsby";
 
+const postTemplate = resolve(`./src/templates/post-template.tsx`);
 // create pages dynamically
 
 type TypeGatsbyNodeQuery = {
-  allMdxPostSlug: {
+  allMdxPost: {
     nodes: Array<{
       frontmatter: { slug: string };
+      internal: { contentFilePath: string };
     }>;
   };
   allCategories: { distinct: Array<string> };
@@ -19,10 +20,13 @@ export const createPages: GatsbyNode["createPages"] = async ({
 }) => {
   const { data, errors } = await graphql<TypeGatsbyNodeQuery>(`
     query GatsbyNode {
-      allMdxPostSlug: allMdx(sort: { frontmatter: { date: DESC } }) {
+      allMdxPost: allMdx(sort: { frontmatter: { date: DESC } }) {
         nodes {
           frontmatter {
             slug
+          }
+          internal {
+            contentFilePath
           }
         }
       }
@@ -37,10 +41,11 @@ export const createPages: GatsbyNode["createPages"] = async ({
   }
 
   if (data) {
-    data.allMdxPostSlug.nodes.forEach((post) => {
+    data.allMdxPost.nodes.forEach((post) => {
       return actions.createPage({
         path: `/posts/${post.frontmatter.slug}`,
-        component: path.resolve(`src/templates/post-template.tsx`),
+        // component: resolve(`src/templates/post-template.tsx`) /*old version*/,
+        component: `${postTemplate}?__contentFilePath=${post.internal.contentFilePath}`,
         context: { slug: post.frontmatter.slug },
       });
     });
@@ -48,7 +53,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     data.allCategories.distinct.forEach((category) => {
       actions.createPage({
         path: `/categories/${category.toLowerCase()}`,
-        component: path.resolve(`src/templates/category-template.tsx`),
+        component: resolve(`src/templates/category-template.tsx`),
         context: { category },
       });
     });
