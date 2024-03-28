@@ -10,19 +10,19 @@ type TypePageContext = {
 export default function CategoryTemplate({
   data,
   pageContext,
-}: PageProps<TypeSingleCategoryQuery, TypePageContext>) {
+}: PageProps<TypeSingleCategoryPostsQuery, TypePageContext>) {
   return (
     <Layout>
       <Hero showPersonImg={true} />
       <Posts
-        title={`categories / ${pageContext.category}`}
+        title={`categories / ${pageContext.category.toLowerCase()}.`}
         posts={data.allMdx.nodes}
       />
     </Layout>
   );
 }
 
-type TypeSingleCategoryQuery = {
+type TypeSingleCategoryPostsQuery = {
   allMdx: {
     nodes: Array<{
       id: string;
@@ -46,7 +46,7 @@ type TypeSingleCategoryQuery = {
 };
 
 export const query = graphql`
-  query SingleCategory($category: String) {
+  query SingleCategoryPosts($category: String) {
     allMdx(filter: { frontmatter: { category: { eq: $category } } }) {
       nodes {
         id
