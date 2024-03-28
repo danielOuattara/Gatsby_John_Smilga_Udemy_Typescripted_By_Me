@@ -17,7 +17,7 @@ import Counter from "./Complete/Counter";
 import { myH2, myH4 } from "./Complete/Headings";
 import LikeButton from "./Complete/LikeButton";
 import PrismSetup from "./Complete/PrismSetup";
-import { Video, RegularVideo } from "./Complete";
+import { IframeRemoteVideo, LocalVideo } from "./Complete";
 //--------------------------------------------------
 import Posts from "./Posts";
 import Post from "./Posts/Post";
@@ -45,8 +45,8 @@ export {
   myH4,
   LikeButton,
   PrismSetup,
-  Video,
-  RegularVideo,
+  IframeRemoteVideo,
+  LocalVideo,
   //--
   Posts,
   Post,

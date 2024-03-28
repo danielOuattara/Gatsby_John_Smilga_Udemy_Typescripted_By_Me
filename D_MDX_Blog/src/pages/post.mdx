@@ -10,7 +10,7 @@ readTime: 50
 
 import { Link } from "gatsby"
 import { FiInfo } from "react-icons/fi"
-import { Counter, LikeButton } from "./../components"
+import { Counter, LikeButton, LocalVideo, IframeRemoteVideo } from "./../components";
 
 # my first mdx file
 
@@ -107,7 +107,7 @@ laudantium voluptate doloremque enim reiciendis.
 
 <Counter />
 
-<div className="nice-text" style={{margin: "4rem 0"}}>
+<div className="nice-text" style={{ margin: "4rem 0" }}>
 
 <h3>Like Button React Snippet</h3>
 
@@ -163,8 +163,15 @@ const Wrapper = styled.div`
   }
 `;
 ```
-<LikeButton/>
+<LikeButton />
+
 </div>
+
+## Video components
+
+ <LocalVideo/> 
+
+ <IframeRemoteVideo/>
 
 <Link to="/" className="btn center-btn">Go To Home</Link>
 

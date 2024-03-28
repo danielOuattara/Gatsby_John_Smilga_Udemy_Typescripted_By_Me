@@ -1,44 +1,19 @@
 import * as React from "react";
-// import video from "./../../assets/connect.mp4";
+import video from "./../../assets/connect.mp4";
 import styled from "styled-components";
 import type { PageProps } from "gatsby";
 
-export function RegularVideo() {
+export function LocalVideo() {
   return (
-    <RegVideoWrapper>
+    <LocalVideoWrapper>
       <video controls autoPlay muted loop>
-        {/* <source src={video} type="video/mp4" /> */}
+        <source src={video} type="video/mp4" />
       </video>
-    </RegVideoWrapper>
+    </LocalVideoWrapper>
   );
 }
 
-//-------------------------------------------------------
-
-interface IVideoProps extends PageProps {
-  src: string;
-  title: string;
-}
-
-export function Video({ src, title, ...props }: IVideoProps) {
-  return (
-    <IframeVideoWrapper>
-      <div className="video">
-        <iframe
-          src={src}
-          title={title}
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          frameBorder="0"
-          // webkitallowfullscreen="true"
-          // mozallowfullscreen="true"
-          allowFullScreen
-        />
-      </div>
-    </IframeVideoWrapper>
-  );
-}
-
-const RegVideoWrapper = styled.div`
+const LocalVideoWrapper = styled.div`
   width: 90vw;
   max-width: 700px;
   height: 30vh;
@@ -53,7 +28,37 @@ const RegVideoWrapper = styled.div`
     object-fit: cover;
   }
 `;
-const IframeVideoWrapper = styled.div`
+
+//-------------------------------------------------------
+
+interface IframeRemoteVideoProps extends PageProps {
+  src: string;
+  title: string;
+}
+
+export function IframeRemoteVideo({
+  src,
+  title,
+  ...props
+}: IframeRemoteVideoProps) {
+  return (
+    <IframeRemoteVideoWrapper>
+      <div className="video">
+        <iframe
+          src={src}
+          title={title}
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          frameBorder="0"
+          webkitallowfullscreen="true"
+          mozallowfullscreen="true"
+          allowFullScreen
+        />
+      </div>
+    </IframeRemoteVideoWrapper>
+  );
+}
+
+const IframeRemoteVideoWrapper = styled.div`
   width: 90vw;
   max-width: 700px;
 
@@ -75,7 +80,7 @@ const IframeVideoWrapper = styled.div`
   }
 `;
 
-Video.defaultProps = {
+IframeRemoteVideo.defaultProps = {
   src: "https://www.youtube.com/embed/-8ORfgUa8ow",
   title: "the best html css tutorial ever !",
 };
