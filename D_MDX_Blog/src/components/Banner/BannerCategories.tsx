@@ -1,10 +1,15 @@
 import * as React from "react";
 import styled from "styled-components";
-import Categories from "../Categories";
+import { Categories } from "./../index";
 import Title from "./Title";
 
 export default function BannerCategories() {
-  return <Wrapper>Banner Categories</Wrapper>;
+  return (
+    <Wrapper>
+      <Title title={"categories"} />
+      <Categories />
+    </Wrapper>
+  );
 }
 
 const Wrapper = styled.div`
