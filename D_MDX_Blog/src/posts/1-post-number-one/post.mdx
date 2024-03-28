@@ -6,11 +6,32 @@ date: 2020-05-02
 author: john smith
 category: HTML&CSS
 readTime: 50
+embeddedImages:
+ - ./images/html-1.png
+ - ./images/html-2.png
+ - ./images/html-3.png
 ---
 
 import { Link } from 'gatsby'
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
+<GatsbyImage 
+  image={getImage(props.data.mdx.frontmatter.embeddedImages[0])} 
+  alt="html-1" 
+  className="first-inline-img"
+/>
 
+<GatsbyImage 
+  image={getImage(props.data.mdx.frontmatter.embeddedImages[1])} 
+  alt="html-1" 
+  className="first-inline-img"
+/>
+
+<GatsbyImage 
+  image={getImage(props.data.mdx.frontmatter.embeddedImages[2])} 
+  alt="html-1" 
+  className="first-inline-img"
+/>
 
 _I'm baby humblebrag neutra taiyaki af vice bespoke locavore fanny pack_ ramps vexillologist succulents. Normcore etsy pour-over adaptogen skateboard fashion axe, bushwick food truck beard lumbersexual master cleanse actually deep v. **Retro cardigan raw denim franzen kickstarter you probably haven't heard of them literally** aesthetic snackwave four dollar toast. Keffiyeh synth umami, helvetica yr flexitarian jean shorts banh mi cardigan leggings letterpress paleo intelligentsia narwhal.
 
@@ -44,4 +65,4 @@ export default Counter
 
 <Link to="/posts" className="btn center-btn">
   all posts
-</Link>
+</Link> 

@@ -42,7 +42,6 @@ export default function PostTemplate({
 type TypeGetSinglePostQuery = {
   mdx: {
     id: string;
-    // body: string;
     frontmatter: {
       category: string;
       date: string;
@@ -53,6 +52,11 @@ type TypeGetSinglePostQuery = {
           gatsbyImageData: IGatsbyImageData;
         };
       };
+      embeddedImages: Array<{
+        childImageSharp: {
+          gatsbyImageData: IGatsbyImageData;
+        };
+      }>;
     };
   };
 };
@@ -71,8 +75,12 @@ export const query = graphql`
             gatsbyImageData
           }
         }
+        embeddedImages {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
       }
-      # body
     }
   }
 `;
