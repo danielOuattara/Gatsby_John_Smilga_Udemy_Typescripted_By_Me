@@ -2,17 +2,18 @@ import * as React from "react";
 import styled from "styled-components";
 import type { PageProps } from "gatsby";
 
-interface ImyH2Props extends PageProps {
-  title: string;
+export interface ImyH2Props {
+  title?: string;
+  children?: React.ReactNode;
 }
 
 export function myH2({ children, title }: ImyH2Props) {
   if (title) {
     return (
-      <HeadingTwo>
+      <H2Wrapper>
         <h2>{children}</h2>
         <div className="underline"></div>
-      </HeadingTwo>
+      </H2Wrapper>
     );
   }
   return (
@@ -26,7 +27,7 @@ export function myH2({ children, title }: ImyH2Props) {
     </h2>
   );
 }
-const HeadingTwo = styled.div`
+const H2Wrapper = styled.div`
   margin: 2rem 0;
   .underline {
     width: 5rem;
@@ -35,10 +36,20 @@ const HeadingTwo = styled.div`
   }
 `;
 //---------------------------------------------------------------
+interface ImyH4Props {
+  title?: string;
+  children?: React.ReactNode;
+}
 
-export function myH4(props: PageProps) {
+export function myH4(props: ImyH4Props) {
   return (
-    <h3 style={{ margin: "2rem 0", color: "var(--clr-primary-5)" }}>
+    <h3
+      style={{
+        margin: "2rem 0",
+        color: "var(--clr-primary-5)",
+        textDecoration: "underline",
+      }}
+    >
       {props.children}
     </h3>
   );
