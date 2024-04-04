@@ -3,13 +3,14 @@ import { FiInfo } from "react-icons/fi";
 import { TiWarningOutline } from "react-icons/ti";
 import { GoQuote } from "react-icons/go";
 import styled from "styled-components";
-import type { PageProps } from "gatsby";
 
-interface IBlockquoteProps extends PageProps {
-  display: string;
+interface IBlockquoteProps {
+  display?: string;
+  children?: React.ReactNode;
 }
 
 export default function Blockquote({ children, display }: IBlockquoteProps) {
+  console.log("HELLO");
   if (display === "warning")
     return (
       <Wrapper>
