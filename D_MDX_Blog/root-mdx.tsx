@@ -163,6 +163,6 @@ const components = {
   blockquote: Blockquote,
 };
 
-export function wrapMDXRoot({ element }) {
+export const wrapMDXRoot = ({ element }) => {
   return <MDXProvider components={components}>{element}</MDXProvider>;
-}
+};
