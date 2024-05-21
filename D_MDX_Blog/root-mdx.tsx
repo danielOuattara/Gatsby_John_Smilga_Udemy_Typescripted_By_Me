@@ -162,7 +162,8 @@ const components = {
   inlineCode: Code,
   // code: Code,
   blockquote: Blockquote,
-  pre: Example,
+  // pre: Example,
+  pre: PrismSetup,
 };
 
 export const wrapMDXRoot = ({ element }) => {
