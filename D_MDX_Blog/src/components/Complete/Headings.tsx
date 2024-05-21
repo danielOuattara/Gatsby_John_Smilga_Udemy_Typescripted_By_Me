@@ -1,6 +1,5 @@
 import * as React from "react";
 import styled from "styled-components";
-import type { PageProps } from "gatsby";
 
 export interface ImyH2Props {
   title?: string;

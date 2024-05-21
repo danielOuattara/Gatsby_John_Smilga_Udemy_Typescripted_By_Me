@@ -11,13 +11,17 @@ import Banner from "./Banner";
 import Recent from "./Banner/Recent";
 import Title from "./Banner/Title";
 //--------------------------------------------------
-import Blockquote from "./Complete/Blockquote";
-import Code from "./Complete/Code";
-import Counter from "./Complete/Counter";
-import { myH2, myH4 } from "./Complete/Headings";
-import LikeButton from "./Complete/LikeButton";
-import PrismSetup from "./Complete/PrismSetup";
-import { IframeRemoteVideo, LocalVideo } from "./Complete";
+import {
+  Blockquote,
+  Code,
+  Counter,
+  Headings,
+  LikeButton,
+  PrismSetup,
+  IframeRemoteVideo,
+  LocalVideo,
+} from "./Complete";
+
 //--------------------------------------------------
 import Posts from "./Posts";
 import Post from "./Posts/Post";
@@ -41,8 +45,7 @@ export {
   // Complete,
   Counter,
   // Headings,
-  myH2,
-  myH4,
+  Headings,
   LikeButton,
   PrismSetup,
   IframeRemoteVideo,
