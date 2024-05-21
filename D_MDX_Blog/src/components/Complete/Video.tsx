@@ -6,7 +6,7 @@ import type { PageProps } from "gatsby";
 export function LocalVideo() {
   return (
     <LocalVideoWrapper>
-      <video controls autoPlay muted loop>
+      <video controls muted>
         <source src={video} type="video/mp4" />
       </video>
     </LocalVideoWrapper>
@@ -45,12 +45,10 @@ export function IframeRemoteVideo({
     <IframeRemoteVideoWrapper>
       <div className="video">
         <iframe
-          src={src}
-          title={title}
+          src={src || "https://www.youtube.com/embed/-8ORfgUa8ow"}
+          title={title || "the best html css tutorial ever !"}
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           frameBorder="0"
-          webkitallowfullscreen="true"
-          mozallowfullscreen="true"
           allowFullScreen
         />
       </div>
@@ -79,8 +77,3 @@ const IframeRemoteVideoWrapper = styled.div`
     width: 100%;
   }
 `;
-
-IframeRemoteVideo.defaultProps = {
-  src: "https://www.youtube.com/embed/-8ORfgUa8ow",
-  title: "the best html css tutorial ever !",
-};
