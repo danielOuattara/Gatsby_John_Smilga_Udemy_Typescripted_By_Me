@@ -146,9 +146,10 @@ import * as React from "react";
 import { MDXProvider } from "@mdx-js/react";
 import {
   Headings,
-  PrismSetup,
   Code,
   Blockquote,
+  Example,
+  PrismSetup,
 } from "./src/components/Complete";
 
 const TestingBlockquote = ({ children }) => (
@@ -161,6 +162,7 @@ const components = {
   inlineCode: Code,
   // code: Code,
   blockquote: Blockquote,
+  pre: Example,
 };
 
 export const wrapMDXRoot = ({ element }) => {
