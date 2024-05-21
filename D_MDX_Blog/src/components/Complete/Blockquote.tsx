@@ -1,7 +1,7 @@
 import * as React from "react";
 import { FiInfo } from "react-icons/fi";
 import { TiWarningOutline } from "react-icons/ti";
-import { GoQuote } from "react-icons/go";
+import { VscQuote } from "react-icons/vsc";
 import styled from "styled-components";
 
 interface IBlockquoteProps {
@@ -10,7 +10,6 @@ interface IBlockquoteProps {
 }
 
 export default function Blockquote({ children, display }: IBlockquoteProps) {
-  console.log("HELLO");
   if (display === "warning")
     return (
       <Wrapper>
@@ -39,7 +38,7 @@ export default function Blockquote({ children, display }: IBlockquoteProps) {
     return (
       <Wrapper>
         <div className="quote">
-          <GoQuote className="quote-icon" />
+          <VscQuote className="quote-icon" />
           {children}
         </div>
       </Wrapper>
